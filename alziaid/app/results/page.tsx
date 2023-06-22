@@ -1,16 +1,11 @@
-"use client";
 
-import Image from 'next/image'
 import Link from 'next/link';
 
 export default async function Testpage(){
     return (
-        
         <main className="flex min-h-screen flex-col items-center justify-center p-12">
         <div className="z-10 w-full max-w-5xl items-center justify-center font-mono text-sm lg:flex">
-            <div class="box-border h-16 w-32 p-4 border-4">
-                <Link href="/">Go Back </Link>
-            </div>
+        
             <div class="px-8"></div>
             <div class="box-border h-32 w-64 p-4 border-4">
                 Time remaining: 
@@ -26,21 +21,14 @@ export default async function Testpage(){
             <div class="px-8"></div>
 
       </div>
-      <div class="py-1"></div>
-      
-      <div class=" shadow-2xl box-border grow min-w-full min-h-full p-4 border-4">      
-        
-      </div>
+
       <div class="py-1"></div>
       <a>
           <h2 className={`mb-3 text-2xl font-semibold`}>
-            <Link href="/results">End Test </Link>
+          <Link href="/">Go Home </Link>
           </h2>
         </a>
-        <script>
-            console.log("javascript is full of shit");
-        </script>
-      
+
     </main>
     );
 }

@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -31,20 +32,14 @@ export default function Home() {
      
       <div className="mb-32 grid text-center justify-center lg:mb-0 ">
         
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <Link href="/test">
           <h2 className={`mb-3 text-5xl font-semibold`}>
-            START TEST{' '}
-            
+            START TEST
           </h2>
           <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
             Diagnose Alzheimer's Disease in less than 5 minutes
           </p>
-        </a>
+        </Link>
       </div>
 
 
