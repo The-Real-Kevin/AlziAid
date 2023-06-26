@@ -1,9 +1,3 @@
-var prediction = webgazer.getCurrentPrediction();
-if (prediction) {
-	var x = prediction.x;
-	var y = prediction.y;
-}
-
 var PointCalibrate = 0;
 var CalibrationPoints={};
 
@@ -19,7 +13,7 @@ function ClearCanvas(){
   });
   var canvas = document.getElementById("plotting_canvas");
   canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
-}
+} 
 
 /**
  * Show the instruction of using calibration at the start up screen.
