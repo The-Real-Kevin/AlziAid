@@ -66,7 +66,6 @@
 
 .u-section-2 .u-repeater-1 {
   grid-gap: 10px 10px;
-  grid-auto-columns: calc(14.2857% - 8.57143px);
   grid-template-columns: calc(14.2857% - 8.57143px) calc(14.2857% - 8.57143px) calc(14.2857% - 8.57143px) calc(14.2857% - 8.57143px) calc(14.2857% - 8.57143px) calc(14.2857% - 8.57143px) calc(14.2857% - 8.57143px);
   min-height: 357px;
 }
@@ -262,8 +261,6 @@
 
 @media (max-width: 1199px) {
   .u-section-2 .u-repeater-1 {
-    grid-auto-columns: calc(14.285714285714286% - 8.57143px);
-    grid-template-columns: repeat(7, calc(14.285714285714286% - 8.57143px));
     min-height: 307px;
   }
 
@@ -369,8 +366,7 @@
 
 @media (max-width: 991px) {
   .u-section-2 .u-repeater-1 {
-    grid-auto-columns: calc(25% - 7.5000012499999995px);
-    grid-template-columns: repeat(4, calc(25% - 7.5000012499999995px));
+    grid-template-columns: calc(25% - 7.5px) calc(25% - 7.5px) calc(25% - 7.5px) calc(25% - 7.5px);
     min-height: 806px;
   }
 
@@ -392,15 +388,13 @@
 
 @media (max-width: 767px) {
   .u-section-2 .u-repeater-1 {
-    grid-auto-columns: calc(50% - 5.000000833333333px);
-    grid-template-columns: repeat(2, calc(50% - 5.000000833333333px));
+    grid-template-columns: calc(50% - 5px) calc(50% - 5px);
     min-height: 1376px;
   }
 }
 
 @media (max-width: 575px) {
   .u-section-2 .u-repeater-1 {
-    grid-auto-columns: calc(100% - 0px);
     grid-template-columns: 100%;
   }
 }.u-section-3 .u-sheet-1 {
