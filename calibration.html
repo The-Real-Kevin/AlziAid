@@ -1,18 +1,9 @@
 <!DOCTYPE html>
-<!--
-This is an example HTML that shows how WebGazer can be used on a website.
-This file provides the additional features:
-  * An integrated, intuitive and sleek action bar with an informative "help" module accessible at all times
-  * Structured 9-point calibration system
-  * Accuracy measure of predictions based on calibration process
-  * Video feedback regarding face positioning
-  * Improved eye predictions visible to the user
-Instructions on use can be found in the README repository.
--->
+
 <html>
     <head>
         <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-        <TITLE>WebGazer Demo</TITLE>
+        <TITLE>AlziAid Demo</TITLE>
         <link rel="stylesheet" type="text/css" href="./css/style.css">
         <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
         <!-- <script src="./tensorflow.js"></script> -->
@@ -20,14 +11,11 @@ Instructions on use can be found in the README repository.
     </head>
     <body LANG="en-US" LINK="#0000ff" DIR="LTR">
       <canvas id="plotting_canvas" width="500" height="500" style="cursor:crosshair;"></canvas>
-
         <script src="./node_modules/sweetalert/dist/sweetalert.min.js"></script>
-
         <script src="./js/main.js"></script>
         <script src="./js/calibration.js"></script>
         <script src="./js/precision_calculation.js"></script>
         <script src="./js/precision_store_points.js"></script>
-
         <nav id="webgazerNavbar" class="navbar navbar-expand-lg navbar-default navbar-fixed-top">
           <div class="container-fluid">
             <div class="navbar-header">
@@ -48,6 +36,21 @@ Instructions on use can be found in the README repository.
             </div>
           </div>
         </nav>
+        <header>
+          <h1>AlziAid</h1>
+          <p>AI diagnostic test for Alzheimer's Disease</p>
+      </header>
+      <main>
+          <section>
+              <h2>Start test</h2>
+              <button onclick="startExperiment()">Calibrate</button>
+              <p>Calibrate before starting test</p>
+              <script>
+                  function startExperiment(){
+                      Restart()
+                  }
+              </script>
+          </section>
         <!-- Calibration points -->
         <div class="calibrationDiv">
             <input type="button" class="Calibration" id="Pt1"></input>
@@ -60,11 +63,9 @@ Instructions on use can be found in the README repository.
             <input type="button" class="Calibration" id="Pt8"></input>
             <input type="button" class="Calibration" id="Pt9"></input>
         </div>
-
         <!-- Modal -->
         <div id="helpModal" class="modal fade" role="dialog">
           <div class="modal-dialog">
-
             <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-body">
@@ -77,13 +78,30 @@ Instructions on use can be found in the README repository.
                 <button type="button" id='start_calibration' class="btn btn-primary" data-bs-dismiss="modal" onclick="Restart()">Calibrate</button>
               </div>
             </div>
-
           </div>
         </div>
-
         <!-- Latest compiled JavaScript -->
         <script src="./js/resize_canvas.js"></script>
         <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
+        <section>
+          <h2>Support</h2>
+          <p>Need help with AlziAid? Visit our support website for FAQs, troubleshooting tips, and more.</p>
+          <button onclick="openSupportPage()">Support Website</button>
+          <script>
+              function openSupportPage() {
+                  window.location.href = "https://your-support-website-url-here.com";
+              }
+          </script>
+      </section>
+        <section>
+            <h2>About the Creator</h2>
+            <p>AlziAid was developed by Kevin, a software engineer with a passion for using technology to improve our lives. Check out Kevin's <a href="https://www.youtube.com/channel/UCxJfnNb2HgQehHO2ocaP6UA">YouTube channel</a> for more information on his work.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 AlziAid. All rights reserved.</p>
+    </footer>
+    <script src="./js/resize_canvas.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
