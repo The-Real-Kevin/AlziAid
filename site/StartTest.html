@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="simple.css">
+    <meta charset="UTF-8">
+    <title>Testing.</title>
+    <script src="https://webgazer.cs.brown.edu/webgazer.js"></script>
+    <style>
+        #man {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            display: none;
+            transform: translate(-50%, -50%);
+        }
+        #timer {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: none;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <h1>WebGazer.js Eye Tracking things</h1>
+    <p>Press the button below to start tracking your gaze while moving a picture of a man across the screen.</p>
+    <div id="timer">60 seconds left</div>
+    <img id="man" src="man.png" alt="Man">
+    <button onclick="startTracking()">Start Tracking</button>
+    <ul id="percentages"></ul>
+
+
+
+    <button onclick="startCalib()">Start Tracking</button>
+
+
+
+
+    <script>
+        function startTracking() {
+            document.getElementById("percentages").style.display = "none";
+            document.getElementsByTagName("h1")[0].innerHTML = "";
+            document.getElementsByTagName("p")[0].innerHTML = "";
+            document.getElementsByTagName("button")[0].parentNode.removeChild(document.getElementsByTagName("button")[0]);
+            document.getElementById("man").style.display="block"; 
+            document.getElementById("timer").style.display="block"; 
+
+            webgazer.setGazeListener(function(data, elapsedTime) {
+	        if (data == null) {
+                    return;
+	        }
+	        var xprediction = data.x; //these x coordinates are relative to the viewport
+	        var yprediction = data.y; //these y coordinates are relative to the viewport
+                var percentage = calculatePercentage(xprediction, yprediction);
+                var li = document.createElement("li");
+                li.textContent = percentage + "%";	
+                document.getElementById("percentages").appendChild(li);
+	    }).begin();
+            var timer = setInterval(function() {
+                var timeLeft = parseInt(document.getElementById("timer").textContent.split(" seconds left")[0]);
+                if (timeLeft > 0) {
+                    document.getElementById("timer").textContent = timeLeft - 1 + " seconds left";
+                } else {
+                    clearInterval(timer);
+                    webgazer.pause();
+                    var averagePercentage = calculateAveragePercentage();
+                    document.body.innerHTML = "<h1>Test Results</h1><p>Your average percentage was " + averagePercentage + "%.</p>";
+                }
+            }, 1000);
+        }
+
+        function calculatePercentage(x, y) {
+            var man = document.getElementById("man")
+            if (!man) {
+                console.error("Could not find man element");
+                return;
+            };
+            var manX = man.offsetLeft + man.offsetWidth / 2;
+            var manY = man.offsetTop + man.offsetHeight / 2;
+            var distance = Math.sqrt(Math.pow(x - manX, 2) + Math.pow(y - manY, 2));
+            var maxDistance = Math.sqrt(Math.pow(window.innerWidth, 2) + Math.pow(window.innerHeight, 2)) / 2;
+            console.log(x)
+            var percentage = (1 - distance / maxDistance) * 100;
+            return Math.round(percentage);
+        }
+
+        function calculateAveragePercentage() {
+            var percentages = [];
+            var lis = document.getElementById("percentages").getElementsByTagName("li");
+            for (var i = 0; i < lis.length; i++) {
+                percentages.push(parseInt(lis[i].textContent));
+            }
+            var sum = percentages.reduce(function(a, b) { return a + b; }, 0);
+            return Math.round(sum / percentages.length);
+        }
+    </script>
+</body>
+</html>
