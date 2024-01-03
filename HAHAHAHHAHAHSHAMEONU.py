@@ -1,4 +1,6 @@
 from PIL import Image
+import datetime
+import json
 
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import os
@@ -6,11 +8,21 @@ import os
 class RedirectHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         path2 = self.path.split("?")[0]
+        print(path2)
         query_params = self.path.split("?")[1:] if "?" in self.path else []
         if path2 == '/':
             self.send_response(301)
-            self.send_header('Location', './site/index.html')
+            self.send_header('Location', 'site/index.html')
             self.end_headers()
+        elif path2 == "/submit":
+            with open('silly.json', 'w') as w:
+                w.writelines('{\n  "date": "' + str(datetime.datetime.now()) + '",\n  "perc": "' + query_params[0].split("=")[0] + '"\n}')
+        elif path2 == "/submissions":
+            with open("silly.json", "rb") as w:
+                self.send_response(200)
+                self.send_header('Content-type', 'application/json')
+                self.end_headers()
+                self.wfile.write(w.read())
         else:
             file_path = path2.strip('/')
             _, file_extension = os.path.splitext(file_path) 
@@ -35,9 +47,10 @@ class RedirectHandler(BaseHTTPRequestHandler):
                 if query_params and file_extension in ['.png', '.jpg', '.jpeg', '.gif']:
                     os.remove(file_path)
             else:
-                self.send_response(301)
-                self.send_header('Location', './404.html')
-                self.end_headers()
+                print(path2)
+                #self.send_response(301)
+                #self.send_header('Location', './404.html')
+                #self.end_headers()
 
     def get_content_type(self, file_extension):
         if file_extension == '.html':

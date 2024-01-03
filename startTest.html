@@ -106,13 +106,13 @@
                     webgazer.pause();
                     var averagePercentage = calculateAveragePercentage();
                     if (averagePercentage > 66) {
-                        f = "Your test percentage indicates that you likely do not have dementia-related health problems."
+                        f = "Your results indicate that you likely do not have Alzheimer's."
                     } else if (averagePercentage > 25) {
                         f = "The results given are not conclusive, please re-take the test. </br>You can still submit a score if you want, however it will not be counted towards your estimates."
                     } else {
                         f = "The results indicate that you likely have dementia-related health problems."
                     }
-                    document.body.innerHTML = "<h1>Test Results</h1><div class='tube' data-value=" + calculateAveragePercentage() + "></div><p>" + f + "</p><input type='button' value='Retake Test' style='display: inline-block;' onclick='location.reload()'><input type='submit' style='display: inline-block;' value='Submit Score' onclick='submit()'>";
+                    document.body.innerHTML = "<h1>Test Results</h1><div class='tube' data-value=" + calculateAveragePercentage() + "></div><p>" + f + "</p><input type='button' value='Retake Test' style='display: inline-block;' onclick='location.reload()'><input type='submit' style='display: inline-block;' value='Submit Score' href='./submit?perc=" + averagePercentage + "'>";
                 }
             }, 1000);
         }
