@@ -17,8 +17,7 @@ class RedirectHandler(BaseHTTPRequestHandler):
         elif path2 == "/submit":
             with open('silly.json', 'r') as f:
                 data = json.load(f)
-            data.append({'name': str(datetime.datetime.now()), 'perc': query_params[0].split("=")[1]})
-            print(data)
+            data.append({'date': str(datetime.datetime.now()), 'perc': query_params[0].split("=")[1]})
             with open('silly.json', 'w') as f:
                 json.dump(data, f)
         elif path2 == "/submissions":
@@ -51,10 +50,9 @@ class RedirectHandler(BaseHTTPRequestHandler):
                 if query_params and file_extension in ['.png', '.jpg', '.jpeg', '.gif']:
                     os.remove(file_path)
             else:
-                print(path2)
-                #self.send_response(301)
-                #self.send_header('Location', './404.html')
-                #self.end_headers()
+                self.send_response(301)
+                self.send_header('Location', './404.html')
+                self.end_headers()
 
     def get_content_type(self, file_extension):
         if file_extension == '.html':
