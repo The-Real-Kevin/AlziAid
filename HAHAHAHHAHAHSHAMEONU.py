@@ -15,8 +15,12 @@ class RedirectHandler(BaseHTTPRequestHandler):
             self.send_header('Location', 'site/index.html')
             self.end_headers()
         elif path2 == "/submit":
-            with open('silly.json', 'w') as w:
-                w.writelines('{\n  "date": "' + str(datetime.datetime.now()) + '",\n  "perc": "' + query_params[0].split("=")[0] + '"\n}')
+            with open('silly.json', 'r') as f:
+                data = json.load(f)
+            data.append({'name': str(datetime.datetime.now()), 'perc': query_params[0].split("=")[1]})
+            print(data)
+            with open('silly.json', 'w') as f:
+                json.dump(data, f)
         elif path2 == "/submissions":
             with open("silly.json", "rb") as w:
                 self.send_response(200)
