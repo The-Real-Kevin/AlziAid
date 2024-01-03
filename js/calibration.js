@@ -72,7 +72,7 @@ function calcAccuracy() {
                 }).then(isConfirm => {
                         if (isConfirm){
                             //clear the calibration & hide the last middle button
-                            ClearCanvas();
+                            window.location.href = "startTest.html";
                         } else {
                             //use restart function to restart the calibration
                             document.getElementById("Accuracy").innerHTML = "<a>Not yet Calibrated</a>";

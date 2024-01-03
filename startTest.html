@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/simple.css">
+    <meta charset="UTF-8">
+    <title>Testing.</title>
+    <script src="webgazer.js"></script>
+    <script src="js/resize_canvas.js"></script>
+    <style>
+        .circle {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: green;
+        }
+        #timer {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: none;
+            font-size: 24px;
+        }
+        .tube {
+            height: 50px;
+            border-radius: 10px;
+            background: linear-gradient(to right, red, yellow, green);
+            position: relative;
+        }
+        .tube::before {
+            content: attr(data-value) "%";
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .tube::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 25%;
+            height: 100%;
+            width: 2px;
+            background-color: white;
+        }
+        .tube::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 65%;
+            height: 100%;
+            width: 2px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>AlziAid | Eye Tracker Test</h1>
+    <p>Press the button below to start tracking your gaze according to a ball.</p>
+    <div id="timer">60 seconds left</div>
+    <button onclick="startTracking()">Start Tracking</button>
+    <ul id="percentages"></ul>
+
+    <div class="circle" id="circle" style="display: none"></div>
+    <h2 style="display:none;" id="loading">Loading...</h2>
+
+    <script>
+        function startTracking() {
+            
+            document.getElementById("loading").style.display = "block";
+            document.getElementById("circle").style.display = "block";
+            document.getElementById("percentages").style.display = "none";
+            document.getElementsByTagName("h1")[0].innerHTML = "";
+            document.getElementsByTagName("p")[0].innerHTML = "";
+            document.getElementsByTagName("button")[0].parentNode.removeChild(document.getElementsByTagName("button")[0]);
+            document.getElementById("timer").style.display="block"; 
+
+            webgazer.setGazeListener(function(data, elapsedTime) {
+                if (data == null) {
+                        return;
+                }
+                animate();
+                document.getElementById("loading").textContent = "   ";
+                document.getElementById("loading").display = "none";
+                var x = data.x;
+                var y = data.y;
+                var percentage = calculatePercentage(x, y);
+                var li = document.createElement("li");
+                li.textContent = percentage + "%";	
+                document.getElementById("percentages").appendChild(li);
+
+	        }).begin();
+            var timer = setInterval(function() {
+                
+                var silly = document.getElementById("loading").textContent;
+                if (silly !== "   ") {
+                    return;
+                }
+                var timeLeft = parseInt(document.getElementById("timer").textContent.split(" seconds left")[0]);
+                if (timeLeft > 0) {
+                    document.getElementById("timer").textContent = timeLeft - 1 + " seconds left";
+                } else {
+                    clearInterval(timer);
+                    webgazer.pause();
+                    var averagePercentage = calculateAveragePercentage();
+                    if (averagePercentage > 66) {
+                        f = "Your test percentage indicates that you likely do not have dementia-related health problems."
+                    } else if (averagePercentage > 25) {
+                        f = "The results given are not conclusive, please re-take the test. </br>You can still submit a score if you want, however it will not be counted towards your estimates."
+                    } else {
+                        f = "The results indicate that you likely have dementia-related health problems."
+                    }
+                    document.body.innerHTML = "<h1>Test Results</h1><div class='tube' data-value=" + calculateAveragePercentage() + "></div><p>" + f + "</p><input type='button' value='Retake Test' style='display: inline-block;' onclick='location.reload()'><input type='submit' style='display: inline-block;' value='Submit Score' onclick='submit()'>";
+                }
+            }, 1000);
+        }
+
+        function calculatePercentage(x, y) {
+            var man = document.getElementById("circle")
+            if (!man) {
+                console.error("Could not find element");
+                return;
+            };
+            var manX = man.offsetLeft + man.offsetWidth / 2;
+            var manY = man.offsetTop + man.offsetHeight / 2;
+            var distance = Math.sqrt(Math.pow(x - manX, 2) + Math.pow(y - manY, 2));
+            var maxDistance = Math.sqrt(Math.pow(window.innerWidth, 2) + Math.pow(window.innerHeight, 2)) / 2;
+            var percentage = (1 - distance / maxDistance) * 100;
+            return Math.round(percentage);
+        }
+
+        function calculateAveragePercentage() {
+            var percentages = [];
+            var lis = document.getElementById("percentages").getElementsByTagName("li");
+            for (var i = 0; i < lis.length; i++) {
+                percentages.push(parseInt(lis[i].textContent));
+            }
+            var sum = percentages.reduce(function(a, b) { return a + b; }, 0);
+            return Math.round(sum / percentages.length);
+        }
+    </script>
+
+
+    <script>
+    const ball = document.getElementById('circle');
+    let x = Math.floor(Math.random() * window.innerWidth);
+    let y = Math.floor(Math.random() * window.innerHeight);
+    let dx = (Math.random() - 0.5) * 10;
+    let dy = (Math.random() - 0.5) * 10;
+
+    function animate() {
+        x += dx;
+        y += dy;
+        if (x + 50 > window.innerWidth || x < 0) {
+            dx = (-(dx / Math.abs(dx)) * 4 * ((Math.random() + 0.5) * 1.5));
+            dy = ((dy / Math.abs(dy)) * 4 * ((Math.random() + 0.6) * 1.5));
+        }
+        if (y + 50 > window.innerHeight || y < 0) {
+            dy = (-(dy / Math.abs(dy)) * 4 * ((Math.random() + 0.5) * 1.5));
+            
+            dx = ((dx / Math.abs(dx)) * 4 * ((Math.random() + 0.6) * 1.5));
+        }
+        ball.style.left = x + 'px';
+        ball.style.top = y + 'px';
+        }
+    </script>
+</body>
+</html>
