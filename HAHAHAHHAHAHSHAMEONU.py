@@ -51,7 +51,7 @@ class RedirectHandler(BaseHTTPRequestHandler):
                     os.remove(file_path)
             else:
                 self.send_response(301)
-                self.send_header('Location', './404.html')
+                self.send_header('Location', './../404.html')
                 self.end_headers()
 
     def get_content_type(self, file_extension):
