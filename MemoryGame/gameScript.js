@@ -116,7 +116,7 @@ function change(x) {
             $(pID).css(t, flipBack);
             $(i).css(t, flipBack);
             ppID=0;
-         },1000);
+         },555);
       }
       
       //If blocks flipped are same
@@ -144,12 +144,7 @@ function change(x) {
     //If all pairs are matched
     if (rem==0) {
           clearInterval(time);
-          if (min==0) {
-              time = `${sec} seconds`;
-          }
-          else {
-              time = `${min} minute(s) and ${sec} second(s)`;
-          }
+          time = `${min}:${sec}`;
           setTimeout(function() {
 			$("#ol").html(`
 			<center>
@@ -160,7 +155,7 @@ function change(x) {
 					Time: ${time}</p>
 					<p style="font-size:18px"><br/>Play Again</p>
 					<button onclick="start(3, 4)">3 x 4</button> 
-					<button onclick="start(4, 4)" style="w">4 x 4</button>
+					<button onclick="start(4, 4)">4 x 4</button>
 					<button onclick="start(4, 5)">4 x 5</button>
 					<button onclick="start(5, 6)">5 x 6</button>
 					<button onclick="start(6, 6)">6 x 6</button>
