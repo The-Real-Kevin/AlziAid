@@ -1,1 +1,0 @@
-console.log("javascript is full of shit");
