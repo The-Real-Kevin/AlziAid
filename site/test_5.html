@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <link rel="stylesheet" href="test.css">
+            <script src="webgazer.js" type="text/javascript" ></script>
+            <script src="main.js" type="text/javascript" ></script>
+            <script src="rdk.js" type="text/javascript" ></script>
+        </head>
+    <body>
+        <div class="tempdisplay">
+            <h1>Test 5/5: Dot Kinematogram</h1>
+            <p class="error"> 
+                A circle will appear on screen with small dots moving within. Four choices will appear. Please pick the choice that best describes the movement direction of the dots inside the circle. 
+
+            </br></br>螢幕上將出現一個圓圈，其中有小點在移動。 將出現四個選擇。 請選擇最能描述圓圈內點的移動方向的選項。
+
+        </p>
+            <div class="buttons">
+                <button class="invis">This is placeholder</button>
+                <button class="yea" onclick="bclick(); document.getElementsByClassName('mainSec')[0].style.display='block'; animateDotMotion();">Continue</button>
+            </div>
+        </div>
+
+
+        
+    <div class="mainSec advhide">
+        <h1 class="onTop">Which direction is the majority going?</h1>
+        <canvas id = "myCanvas"> </canvas>
+        <button onclick="window.location.href='finish.html'">N</button>
+        <button onclick="window.location.href='finish.html'">E</button>
+        <button onclick="window.location.href='finish.html'">S</button>
+        <button onclick="window.location.href='finish.html'">W</button>
+        <button onclick="window.location.href='finish.html'">None</button>
+        <button onclick="window.location.href='finish.html'">NE</button>
+        <button onclick="window.location.href='finish.html'">SE</button>
+        <button onclick="window.location.href='finish.html'">SW</button>
+        <button onclick="window.location.href='finish.html'">NW</button>
+        <button onclick="window.location.href='finish.html'">Unsure</button>
+    </div>
+    </body>
+
+    <script>
+        canvas = document.getElementById('myCanvas');
+        const ctx2 = canvas.getContext("2d");
+        w = window.innerWidth
+        setInterval(() => {
+            if (Math.abs(window.innerWidth - w) > 200) {
+                textbox = document.getElementsByClassName("tempdisplay")[0];
+                textbox.style.display="block";
+                textbox.getElementsByClassName('error')[0].textContent = "Do not resize or rotate the window or device while doing tests. This will invalidate the validity of the test.\nPlease reload the webpage to continue.\n\n進行測試時請勿調整視窗或設備的大小或旋轉視窗或設備。這將使測試的有效性失效。請重新加載網頁以繼續。";
+                textbox.getElementsByClassName("yea")[0].textContent = "Reload";
+                textbox.getElementsByClassName("yea")[0].onclick = function() { location.reload(); };
+            }
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight * 0.7;
+            fixsize();
+        });
+        
+        init();
+    </script>
+</html>
