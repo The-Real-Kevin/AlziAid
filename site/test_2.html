@@ -2,20 +2,54 @@
     <html>
         <head>
             <link rel="stylesheet" href="test.css">
-            <script src="webgazer.js" type="text/javascript" ></script>
+            <script src="main.js" type="text/javascript" ></script>
         </head>
     <body>
         <div class="tempdisplay">
             <h1>Test 2/5: Anti-Saccadic Movement</h1>
-            <p> 
+            <p class="error"> 
                 When one of the green dots flashes, look at the OTHER dot that did not flash.
             </br></br>螢幕中央有一個灰點，兩側各有兩個綠點。 當其中一個綠點閃爍時，請查看另一個未閃爍的點。</br></br>.
 
         </p>
             <div class="buttons">
                 <button class="invis">This is placeholder</button>
-                <button onclick="window.location.href='test_3.html'">Continue</button>
+                <button class="yea" onclick="bclick(); lol();">Continue</button>
             </div>
         </div>
+        
+
+        <div class="lol">
+            <div style="height: 55px; width:55px;
+            left: calc(50% - 27.5px);
+            top: calc(50% - 27.5px);"class="center-dot"></div>
+            <div class="unoptimized-dot2" style="left: calc(40% - 27.5px);" id="left-dot"></div>
+            <div class="unoptimized-dot2" style="left: calc(60% - 27.5px);" id="right-dot"></div>
+        </div>
+
+        <script>
+            
+            counter = 10;
+
+            function lol() {
+                const randomDot = Math.random() < 0.5 ? "left" : "right";
+                const pickedDot = document.getElementById(randomDot + "-dot")
+                pickedDot.style.backgroundColor = "#000000";
+                setTimeout(() => {  
+                    pickedDot.style.backgroundColor = "#00ff00";
+                }, 800);
+                console.log("/")
+                counter = counter - 1;
+                if (counter == 0) {
+                    textbox = document.getElementsByClassName("tempdisplay")[0];
+                    textbox.style.display="block";
+                    textbox.getElementsByClassName('error')[0].textContent = "This test has finished. Click Continue to go to the next test.";
+                    textbox.getElementsByClassName("yea")[0].textContent = "Continue ";
+                    textbox.getElementsByClassName("yea")[0].onclick = function() { location.href = "test_3.html"; };
+                }
+                setTimeout(lol, parseInt(Math.random() * 1000) + 2000);
+            }
+            
+        </script>
     </body>
 </html>

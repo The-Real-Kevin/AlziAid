@@ -2,20 +2,74 @@
     <html>
         <head>
             <link rel="stylesheet" href="test.css">
-            <script src="webgazer.js" type="text/javascript" ></script>
+            <script src="main.js" type="text/javascript" ></script>
+            <script src="rgblind/rgblind.js" type="text/javascript" ></script>
         </head>
     <body>
         <div class="tempdisplay">
             <h1>Test 4/5: Color Variation</h1>
-            <p> 
+            <p class="error"> 
                 one dot will show on the screen, with four more surrounding it. Please click on the dot that is closest in color to the center dot. Do NOT click the center dot. 
             </br></br>螢幕上將顯示一個點，周圍還有四個點。 請點選顏色最接近中心點的點。 不要點擊中心點。</br> .
 
-        </p>
+            </p>
             <div class="buttons">
                 <button class="invis">This is placeholder</button>
-                <button onclick="window.location.href='test_5.html'">Continue</button>
+                <button class="yea"onclick="bclick(); change();">Continue</button>
             </div>
         </div>
+
+
+            <div class="lol">
+                <div style="height: 55px; width:55px;
+                left: calc(50% - 27.5px);
+                top: calc(50% - 27.5px);"class="center-dot" id="center"></div>
+                <div class="unoptimized-dot2" style="left: calc(40% - 27.5px);" onclick="change()" id="left-dot"></div>
+                <div class="unoptimized-dot2" style="left: calc(60% - 27.5px);" onclick="change()" id="right-dot"></div>
+                <div class="unoptimized-dot2" style="top: calc(30% - 27.5px);" onclick="change()" id="top-dot"></div>
+                <div class="unoptimized-dot2" style="top: calc(70% - 27.5px);" onclick="change()" id="bottom-dot"></div>
+            </div>
+        <script>
+            function getRandomColor() {
+                const letters = '0123456789ABCDEF';
+                let color = '#';
+                for (let i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+            function tyrctoOpqDxlds(choices) {
+                return choices.sort(() => Math.random() - 0.5);
+            }
+            counter = 15;
+            function change() {
+                const dotElementc = document.getElementById('center');
+                const dotElement = document.getElementById('left-dot');
+                const dotElement2 = document.getElementById('right-dot');
+                const dotElement3 = document.getElementById('top-dot');
+                const dotElement4 = document.getElementById('bottom-dot');
+
+                c = getRandomColor();
+                dotElementc.style.backgroundColor = c;
+                dotElement.style.backgroundColor = c;
+                dotElement2.style.backgroundColor = c;
+                dotElement3.style.backgroundColor = c;
+                dotElement4.style.backgroundColor = c;
+
+                shuffled = tyrctoOpqDxlds(["zZejqbNW26BxLWOMjTRKTPPcmurGLRNg", "uaLnmcGhcXQ862OGs04Ign1ljWtbzIpq", "Wm5VnEf46pdbrk0o5VoidXzVUttfwnSB", "w3866YWLQ1uGGdxg2dloEsivyAq2XK8C"]);
+                dotElement.classList.add(shuffled[0]);
+                dotElement2.classList.add(shuffled[1]);
+                dotElement3.classList.add(shuffled[2]);
+                dotElement4.classList.add(shuffled[3]);
+                counter = counter - 1;
+                if (counter == 0) {
+                    textbox = document.getElementsByClassName("tempdisplay")[0];
+                    textbox.style.display="block";
+                    textbox.getElementsByClassName('error')[0].textContent = "This test has finished. Click Continue to go to the next test.";
+                    textbox.getElementsByClassName("yea")[0].textContent = "Continue ";
+                    textbox.getElementsByClassName("yea")[0].onclick = function() { location.href = "test_3.html"; };
+                }
+            }
+        </script>
     </body>
 </html>

@@ -22,6 +22,32 @@ html {
     padding: 50px;
 }
 
+.center-dot {
+    position: absolute;
+    width: 35px;
+    left: calc(50% - 17.5px);
+    top: calc(50% - 17.5px);
+    height: 35px;
+    background-color: white;
+    box-shadow: 0px 0px 5px 1px;
+    border-radius: 50%;
+}
+.green-dot {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #00FF00;
+    box-shadow: 0px 0px 5px 1px;
+    border-radius: 50%;
+}
+
+#canvas {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -1;
+}
+
 .tempdisplay h1 {
     align-self: center;
     font-size: 3rem;
@@ -115,4 +141,40 @@ button:active {
     font-family: Sarabun;
     width: 100%;
     font-size: 3rem;
+}
+
+.lol {
+    position: absolute;
+    margin: -8px -0px -0px -8px;
+    width: 100%;
+    z-index: -1;
+    height: 100%;
+}
+
+
+.unoptimized-dot {
+    position: absolute;
+    width: 55px;
+    height: 55px;
+    background-color: #00FF00;
+    box-shadow: 0px 0px 5px 1px;
+    border-radius: 50%;
+    margin-top: -27.5px;
+    margin-left: 3.5px;
+}
+.unoptimized-dot2 {
+    position: absolute;
+    width: 55px;
+    height: 55px;
+    left: calc(50% - 27.5px);
+    top: calc(50% - 27.5px);
+    background-color: #00FF00;
+    box-shadow: 0px 0px 5px 1px;
+    border-radius: 50%;
+}
+
+
+marquee {
+    margin: 0px;
+    height: calc(100vh - 30px);
 }

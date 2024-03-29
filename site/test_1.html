@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <link rel="stylesheet" href="test.css">
+            <script src="main.js" type="text/javascript" ></script>
+        </head>
+
+
+    <body>
+        <div class="tempdisplay">
+            <h1>Test 1/5: Saccadic Movement</h1>
+            <p class="error"> 
+                A grey dot will be at center of screen, focus your eyes on the grey dot. When a green dot appears, look at the green dot directly as fast as you can, until it disappears again. 
+            </br></br>螢幕中央將出現一個灰點，將眼睛聚焦在灰點上。 當綠點出現時，盡可能快速地直視綠點，直到它再次消失。</br>.
+        </p>
+            <div class="buttons">
+                <button class="invis">This is placeholder</button>
+                <button class="yea" onclick="bclick(); updateGreenDotPosition();">Continue</button>
+            </div>
+        </div>
+        <div id="canvas"></div>
+
+        <script>
+            const canvas = document.getElementById('canvas');
+            const centerDot = document.createElement('div');
+            const greenDot = document.createElement('div');
+            const centerDotSize = 10;
+            const greenDotSize = 10;
+            counter = 13;
+            const greenDotRadius = 100;
+        
+            centerDot.className = 'center-dot';
+            greenDot.className = 'green-dot';
+        
+            canvas.appendChild(centerDot);
+            canvas.appendChild(greenDot);
+        
+            function updateGreenDotPosition() {
+                if (counter == 0) {
+                    textbox = document.getElementsByClassName("tempdisplay")[0];
+                    textbox.style.display="block";
+                    textbox.getElementsByClassName('error')[0].textContent = "This test has finished. Click Continue to go to the next test.";
+                    textbox.getElementsByClassName("yea")[0].textContent = "Continue ";
+                    textbox.getElementsByClassName("yea")[0].onclick = function() { location.href = "test_2.html"; };
+                }
+                const currentTime = Date.now();
+                const randomAngle = Math.random() * 2 * Math.PI;
+                console.log(Math.random() - 0.5)
+                const newX = ( ( Math.random() - 0.50 ) * 50 );
+                const newY = ( ( Math.random() - 0.50 ) * 50 );
+        
+                greenDot.style.left = `calc(50% + ${newX}%)`;
+                greenDot.style.top = `calc(50% + ${newY}%)`;
+        
+                
+                setTimeout(updateGreenDotPosition, 2500);
+                counter = counter - 1;
+            }
+        
+        
+        </script>
+    </body>
+</html>

@@ -26,16 +26,16 @@
     <div class="mainSec advhide">
         <h1 class="onTop">Which direction is the majority going?</h1>
         <canvas id = "myCanvas"> </canvas>
-        <button onclick="window.location.href='finish.html'">N</button>
-        <button onclick="window.location.href='finish.html'">E</button>
-        <button onclick="window.location.href='finish.html'">S</button>
-        <button onclick="window.location.href='finish.html'">W</button>
-        <button onclick="window.location.href='finish.html'">None</button>
-        <button onclick="window.location.href='finish.html'">NE</button>
-        <button onclick="window.location.href='finish.html'">SE</button>
-        <button onclick="window.location.href='finish.html'">SW</button>
-        <button onclick="window.location.href='finish.html'">NW</button>
-        <button onclick="window.location.href='finish.html'">Unsure</button>
+        <button onclick="boopy();">N</button>
+        <button onclick="boopy();">E</button>
+        <button onclick="boopy();">S</button>
+        <button onclick="boopy();">W</button>
+        <button onclick="boopy();">None</button>
+        <button onclick="boopy();">NE</button>
+        <button onclick="boopy();">SE</button>
+        <button onclick="boopy();">SW</button>
+        <button onclick="boopy();">NW</button>
+        <button onclick="boopy();">Unsure</button>
     </div>
     </body>
 
@@ -55,6 +55,19 @@
             canvas.height = window.innerHeight * 0.7;
             fixsize();
         });
+
+        counter = 20
+        function boopy() {
+            counter = counter - 1;
+            if (counter == 0) {
+                    document.getElementsByClassName("mainSec")[0].style.display="none";
+                    textbox = document.getElementsByClassName("tempdisplay")[0];
+                    textbox.style.display="block";
+                    textbox.getElementsByClassName('error')[0].textContent = "All tests have finished. Click Finish to view results.";
+                    textbox.getElementsByClassName("yea")[0].textContent = "Finish ";
+                    textbox.getElementsByClassName("yea")[0].onclick = function() { location.href = "finish.html"; };
+                }
+        }
         
         init();
     </script>
