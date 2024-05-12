@@ -34,82 +34,81 @@
         }
     </style>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="main.js" type="text/javascript" ></script>
+    <script src="WebGazer Demo_files/webgazer.js" type="text/javascript" ></script>
 </head>
 <body>
     <div class="tempdisplay" id="dialogue-box">
         <h1>Test 3/5: Smooth Movement</h1>
         <p class="error">
             A green dot will smoothly move around the page. Please use your eyes to follow the green dot’s movement.
-            <br><br>一個綠點將平滑地在頁面上移動。 請用眼睛跟隨綠點的移動。
+            <br><br>一個綠點將平滑地在頁面上移動。 請用眼睛跟隨綠點的移動。<br></br>.
         </p>
         <div class="buttons">
             <button class="invis">This is placeholder</button>
-            <button class="yea" onclick="startTest();">Continue</button>
+            <button class="yea" onclick="bclick(); marfix()">Continue</button>
         </div>
     </div>
-    <div class="lol" id="test-container" style="display: none;">
-        <div class="center-dot"></div>
-        <div class="smooth-dot" id="green-dot"></div>
+    <div class="lol">
+        <marquee behavior="alternate" scrollamount="20" id="marq1">
+            <marquee behavior="alternate" scrollamount="20" direction="down" id="marq2">
+                <div class="unoptimized-dot"></div>
+            </marquee>
+        </marquee>
     </div>
 
     <script>
-        const greenDot = document.getElementById("green-dot");
-        const dialogueBox = document.getElementById("dialogue-box");
-        const testContainer = document.getElementById("test-container");
-        let counter = 999;
-        let dx = 1;
-        let dy = 1;
-
-        function moveSmoothly() {
-            if (counter === 0) {
-                dialogueBox.style.display = "block";
-                dialogueBox.getElementsByClassName('error')[0].textContent = "This test has finished. Click Continue to go to the next test.";
-                dialogueBox.getElementsByClassName("yea")[0].textContent = "Continue";
-                dialogueBox.getElementsByClassName("yea")[0].onclick = function () { location.href = "test_4.html"; };
+        // Get references to the marquees
+        const marquee1 = document.getElementById("marq1");
+        const marquee2 = document.getElementById("marq2");
+        counter = 80
+        function marfix() {
+            marquee1.style.display = 'block';
+            marquee2.style.display = 'block';
+            
+            webgazer.setGazeListener(function(data, elapsedTime) {
+                    if (data == null) {
+                        return;
+                    }
+                    var xprediction = data.x; //these x coordinates are relative to the viewport
+                    var yprediction = data.y; //these y coordinates are relative to the viewport
+                    console.log(elapsedTime); //elapsed time is based on time since begin was called
+                }).begin();
+        }
+        function adjustScrollamount() {
+            if (counter == 0) {
+                textbox = document.getElementsByClassName("tempdisplay")[0];
+                textbox.style.display="block";
+                textbox.getElementsByClassName('error')[0].textContent = "This test has finished. Click Continue to go to the next test.";
+                textbox.getElementsByClassName("yea")[0].textContent = "Continue ";
+                textbox.getElementsByClassName("yea")[0].onclick = function() { location.href = "test_4.html"; };
             }
 
-            const radius = Math.min(window.innerWidth, window.innerHeight) * 0.4;
-            const centerX = window.innerWidth / 2;
-            const centerY = window.innerHeight / 2;
-            let targetX = parseFloat(greenDot.style.left);
-            let targetY = parseFloat(greenDot.style.top);
-
-            if (isNaN(targetX) || isNaN(targetY)) {
-                targetX = centerX;
-                targetY = centerY;
-            }
-
-            targetX += dx;
-            targetY += dy;
-
-            const dotSize = parseInt(getComputedStyle(greenDot).width) / 2;
-            const minX = dotSize;
-            const minY = dotSize;
-            const maxX = window.innerWidth - dotSize;
-            const maxY = window.innerHeight - dotSize;
-
-            if (targetX < minX || targetX > maxX) {
-                dx *= -1;
-                targetX = Math.max(minX, Math.min(targetX, maxX));
-            }
-
-            if (targetY < minY || targetY > maxY) {
-                dy *= -1;
-                targetY = Math.max(minY, Math.min(targetY, maxY));
-            }
-
-            greenDot.style.transform = `translate(${targetX}px, ${targetY}px)`;
-
-            setTimeout(moveSmoothly, 10);
-            counter -= 1;
+            marquee1.setAttribute("scrollamount", Math.floor(Math.random() * 60) + 10);
+            marquee2.setAttribute("scrollamount", Math.floor(Math.random() * 0) + 10);
+            
+            setTimeout(adjustScrollamount, 500);
+            counter -= 1
         }
 
-        function startTest() {
-            dialogueBox.style.display = "none";
-            testContainer.style.display = "block";
-            moveSmoothly();
-        }
+        setTimeout(() => {
+            document.getElementById('marq1').style.display='none'; 
+        }, 50)
 
+
+    </script>
+
+    <script>
+        w = window.innerWidth
+        setInterval(() => {
+            if (Math.abs(window.innerWidth - w) > 200) {
+                textbox = document.getElementsByClassName("tempdisplay")[0];
+                textbox.style.display="block";
+                textbox.getElementsByClassName('error')[0].textContent = "Do not resize or rotate the window or device while doing tests. This will invalidate the validity of the test.\nPlease reload the webpage to continue.\n\n進行測試時請勿調整視窗或設備的大小或旋轉視窗或設備。這將使測試的有效性失效。請重新加載網頁以繼續。";
+                textbox.getElementsByClassName("yea")[0].textContent = "Reload";
+                textbox.getElementsByClassName("yea")[0].onclick = function() { location.reload(); };
+            }
+        }, 1);
     </script>
 </body>
 </html>
