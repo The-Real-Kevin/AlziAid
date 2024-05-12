@@ -4,8 +4,6 @@
             <link rel="stylesheet" href="test.css">
             <script src="main.js" type="text/javascript" ></script>
             <script src="rgblind/rgblind.js" type="text/javascript" ></script>
-            <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-            <script src="WebGazer Demo_files/webgazer.js" type="text/javascript" ></script>
         </head>
     <body>
         <div class="tempdisplay">
@@ -17,7 +15,7 @@
             </p>
             <div class="buttons">
                 <button class="invis">This is placeholder</button>
-                <button class="yea"onclick="bclick(); change(); lol;">Continue</button>
+                <button class="yea"onclick="bclick(); change();">Continue</button>
             </div>
         </div>
 
@@ -32,17 +30,6 @@
                 <div class="unoptimized-dot2" style="top: calc(70% - 27.5px);" onclick="change()" id="bottom-dot"></div>
             </div>
         <script>
-            function lol() {
-                
-                webgazer.setGazeListener(function(data, elapsedTime) {
-                    if (data == null) {
-                        return;
-                    }
-                    var xprediction = data.x; //these x coordinates are relative to the viewport
-                    var yprediction = data.y; //these y coordinates are relative to the viewport
-                    console.log(elapsedTime); //elapsed time is based on time since begin was called
-                }).begin();
-            }
             function getRandomColor() {
                 const letters = '0123456789ABCDEF';
                 let color = '#';
@@ -55,6 +42,17 @@
                 return choices.sort(() => Math.random() - 0.5);
             }
             counter = 15;
+
+            const dotElement = document.getElementById('left-dot');
+            const dotElement2 = document.getElementById('right-dot');
+            const dotElement3 = document.getElementById('top-dot');
+            const dotElement4 = document.getElementById('bottom-dot');
+            shuffled = tyrctoOpqDxlds(["zZejqbNW26BxLWOMjTRKTPPcmurGLRNg", "uaLnmcGhcXQ862OGs04Ign1ljWtbzIpq", "Wm5VnEf46pdbrk0o5VoidXzVUttfwnSB", "w3866YWLQ1uGGdxg2dloEsivyAq2XK8C"]);
+            dotElement.classList.add(shuffled[0]);
+            dotElement2.classList.add(shuffled[1]);
+            dotElement3.classList.add(shuffled[2]);
+            dotElement4.classList.add(shuffled[3]);
+
             function change() {
                 const dotElementc = document.getElementById('center');
                 const dotElement = document.getElementById('left-dot');
@@ -68,6 +66,13 @@
                 dotElement2.style.backgroundColor = c;
                 dotElement3.style.backgroundColor = c;
                 dotElement4.style.backgroundColor = c;
+
+
+
+                dotElement.classList.remove(dotElement.classList[1])
+                dotElement2.classList.remove(dotElement2.classList[1])
+                dotElement3.classList.remove(dotElement3.classList[1])
+                dotElement4.classList.remove(dotElement4.classList[1])
 
                 shuffled = tyrctoOpqDxlds(["zZejqbNW26BxLWOMjTRKTPPcmurGLRNg", "uaLnmcGhcXQ862OGs04Ign1ljWtbzIpq", "Wm5VnEf46pdbrk0o5VoidXzVUttfwnSB", "w3866YWLQ1uGGdxg2dloEsivyAq2XK8C"]);
                 dotElement.classList.add(shuffled[0]);
