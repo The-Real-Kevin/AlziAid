@@ -2,6 +2,7 @@
     <html>
         <head>
             <link rel="stylesheet" href="test.css">
+            <script src="jquery-3.7.1.min.js" type="text/javascript" ></script>
             <script src="main.js" type="text/javascript" ></script>
             <script src="WebGazer Demo_files/webgazer.js" type="text/javascript" ></script>
             <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -9,20 +10,20 @@
 
 
     <body>
-        <div class="tempdisplay">
+        <div class="tempdisplay test1">
             <h1>Test 1/5: Saccadic Movement</h1>
             <p class="error"> 
                 A grey dot will be at center of screen, focus your eyes on the grey dot. When a green dot appears, look at the green dot directly as fast as you can, until it disappears again. 
             </br></br>螢幕中央將出現一個灰點，將眼睛聚焦在灰點上。 當綠點出現時，盡可能快速地直視綠點，直到它再次消失。</br>.
         </p>
-            <div class="buttons">
+            <div class="buttons test1">
                 <button class="invis">This is placeholder</button>
                 <button class="yea" onclick="bclick(); updateGreenDotPosition(); lol()">Continue</button>
             </div>
         </div>
-        <div id="canvas"></div>
-
-        <script>
+        <div id="canvas" class="test1"></div>
+        <div id="includedContent"></div>
+        <script class="test1">
             const canvas = document.getElementById('canvas');
             const centerDot = document.createElement('div');
             const greenDot = document.createElement('div');
@@ -36,15 +37,15 @@
         
             canvas.appendChild(centerDot);
             canvas.appendChild(greenDot);
-            function lol() {
-                webgazer.setGazeListener(function(data, elapsedTime) {
+            
+            webgazer.setGazeListener(function(data, elapsedTime) {
                     if (data == null) {
                         return;
                     }
                     var xprediction = data.x; //these x coordinates are relative to the viewport
                     var yprediction = data.y; //these y coordinates are relative to the viewport
-                    console.log(elapsedTime); //elapsed time is based on time since begin was called
                 }).begin();
+            function lol() {
             }
             function updateGreenDotPosition() {
                 if (counter == 0) {
@@ -52,7 +53,7 @@
                     textbox.style.display="block";
                     textbox.getElementsByClassName('error')[0].textContent = "This test has finished. Click Continue to go to the next test.";
                     textbox.getElementsByClassName("yea")[0].textContent = "Continue ";
-                    textbox.getElementsByClassName("yea")[0].onclick = function() { location.href = "test_2.html"; };
+                    textbox.getElementsByClassName("yea")[0].onclick = why;
                 }
                 const currentTime = Date.now();
                 const randomAngle = Math.random() * 2 * Math.PI;

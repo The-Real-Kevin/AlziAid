@@ -1,12 +1,7 @@
 <!DOCTYPE html>
     <html>
-        <head>
-            <link rel="stylesheet" href="test.css">
-            <script src="main.js" type="text/javascript" ></script>
-            <script src="rgblind/rgblind.js" type="text/javascript" ></script>
-        </head>
     <body>
-        <div class="tempdisplay">
+        <div class="tempdisplay test4">
             <h1>Test 4/5: Color Variation</h1>
             <p class="error"> 
                 one dot will show on the screen, with four more surrounding it. Please click on the dot that is closest in color to the center dot. Do NOT click the center dot. 
@@ -20,16 +15,16 @@
         </div>
 
 
-            <div class="lol">
-                <div style="height: 55px; width:55px;
-                left: calc(50% - 27.5px);
-                top: calc(50% - 27.5px);"class="center-dot" id="center"></div>
-                <div class="unoptimized-dot2" style="left: calc(40% - 27.5px);" onclick="change()" id="left-dot"></div>
-                <div class="unoptimized-dot2" style="left: calc(60% - 27.5px);" onclick="change()" id="right-dot"></div>
-                <div class="unoptimized-dot2" style="top: calc(30% - 27.5px);" onclick="change()" id="top-dot"></div>
-                <div class="unoptimized-dot2" style="top: calc(70% - 27.5px);" onclick="change()" id="bottom-dot"></div>
-            </div>
-        <script>
+        <div class="lol test4">
+            <div style="height: 55px; width:55px;
+            left: calc(50% - 27.5px);
+            top: calc(50% - 27.5px);"class="center-dot" id="center"></div>
+            <div class="unoptimized-dot2" style="left: calc(40% - 27.5px);" onclick="change()" id="left-dot"></div>
+            <div class="unoptimized-dot2" style="left: calc(60% - 27.5px);" onclick="change()" id="right-dot"></div>
+            <div class="unoptimized-dot2" style="top: calc(30% - 27.5px);" onclick="change()" id="top-dot"></div>
+            <div class="unoptimized-dot2" style="top: calc(70% - 27.5px);" onclick="change()" id="bottom-dot"></div>
+        </div>
+        <script class="test4">
             function getRandomColor() {
                 const letters = '0123456789ABCDEF';
                 let color = '#';
@@ -85,7 +80,7 @@
                     textbox.style.display="block";
                     textbox.getElementsByClassName('error')[0].textContent = "This test has finished. Click Continue to go to the next test.";
                     textbox.getElementsByClassName("yea")[0].textContent = "Continue ";
-                    textbox.getElementsByClassName("yea")[0].onclick = function() { location.href = "test_5.html"; };
+                    textbox.getElementsByClassName("yea")[0].onclick = why;
                 }
             }
         </script>
