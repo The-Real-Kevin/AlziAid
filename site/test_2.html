@@ -31,7 +31,8 @@
 
             function lol() {
                 const randomDot = Math.random() < 0.5 ? "left" : "right";
-                const pickedDot = document.getElementById(randomDot + "-dot")
+                const pickedDot = document.getElementById(randomDot + "-dot");
+                testData[curind].put([Date.now(), randomDot]);
                 pickedDot.style.backgroundColor = "#00ff00";
                 setTimeout(() => {  
                     pickedDot.style.backgroundColor = "#888888";

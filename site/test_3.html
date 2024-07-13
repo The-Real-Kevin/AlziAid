@@ -57,7 +57,7 @@
         // Get references to the marquees
         const marquee1 = document.getElementById("marq1");
         const marquee2 = document.getElementById("marq2");
-        counter = 80
+        counter = 10
         function marfix() {
             marquee1.style.display = 'block';
             marquee2.style.display = 'block';
@@ -70,10 +70,12 @@
                 textbox.getElementsByClassName("yea")[0].textContent = "Continue ";
                 textbox.getElementsByClassName("yea")[0].onclick = why;
             }
-
-            marquee1.setAttribute("scrollamount", Math.floor(Math.random() * 60) + 10);
-            marquee2.setAttribute("scrollamount", Math.floor(Math.random() * 0) + 10);
+            m1s = Math.floor(Math.random() * 60) + 10
+            m2s = Math.floor(Math.random() * 0) + 10
+            marquee1.setAttribute("scrollamount", m1s);
+            marquee2.setAttribute("scrollamount", m2s);
             
+            testData[curind].put([Date.now(), m1s, m2s]);
             setTimeout(adjustScrollamount, 500);
             counter -= 1
         }

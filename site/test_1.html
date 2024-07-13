@@ -18,11 +18,13 @@
         </p>
             <div class="buttons test1">
                 <button class="invis">This is placeholder</button>
-                <button class="yea" onclick="bclick(); updateGreenDotPosition(); lol()">Continue</button>
+                <button class="yea" onclick="click(); updateGreenDotPosition(); lol()">Continue</button>
             </div>
         </div>
         <div id="canvas" class="test1"></div>
         <div id="includedContent"></div>
+        <script class="fullCount"> 
+        </script> 
         <script class="test1">
             const canvas = document.getElementById('canvas');
             const centerDot = document.createElement('div');
@@ -48,7 +50,9 @@
             function lol() {
             }
             function updateGreenDotPosition() {
+                
                 if (counter == 0) {
+
                     textbox = document.getElementsByClassName("tempdisplay")[0];
                     textbox.style.display="block";
                     textbox.getElementsByClassName('error')[0].textContent = "This test has finished. Click Continue to go to the next test.";
@@ -56,10 +60,10 @@
                     textbox.getElementsByClassName("yea")[0].onclick = why;
                 }
                 const currentTime = Date.now();
-                const randomAngle = Math.random() * 2 * Math.PI;
                 console.log(Math.random() - 0.5)
                 const newX = ( ( Math.random() - 0.50 ) * 50 );
                 const newY = ( ( Math.random() - 0.50 ) * 50 );
+                testData[curind].put([Date.now(), newX, newY]);
         
                 greenDot.style.left = `calc(50% + ${newX}%)`;
                 greenDot.style.top = `calc(50% + ${newY}%)`;

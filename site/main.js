@@ -1,15 +1,16 @@
 
 hehe = 1;
+curind = 0;
 
 function bclick() {
-
     document.getElementsByClassName("tempdisplay")[0].style.display="none";
-
+    startTests();
 }
 
 function why() {
     $('.test'+ hehe).remove();
     hehe += 1;
+    curind += 1;
     $("#includedContent").load("test_" + hehe + ".html");
 }
 
@@ -27,3 +28,11 @@ setInterval(() => {
     canvas.height = window.innerHeight * 0.7;
     fixsize();
 });
+
+
+st = "";
+testdata = [[], [], [], [], []]
+startTimes = []
+function startTests() {
+    startTimes.put(Date.now());
+}

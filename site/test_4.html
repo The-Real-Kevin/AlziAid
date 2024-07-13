@@ -10,7 +10,7 @@
             </p>
             <div class="buttons">
                 <button class="invis">This is placeholder</button>
-                <button class="yea"onclick="bclick(); change();">Continue</button>
+                <button class="yea"onclick="bclick(); change(-1);">Continue</button>
             </div>
         </div>
 
@@ -19,10 +19,10 @@
             <div style="height: 55px; width:55px;
             left: calc(50% - 27.5px);
             top: calc(50% - 27.5px);"class="center-dot" id="center"></div>
-            <div class="unoptimized-dot2" style="left: calc(40% - 27.5px);" onclick="change()" id="left-dot"></div>
-            <div class="unoptimized-dot2" style="left: calc(60% - 27.5px);" onclick="change()" id="right-dot"></div>
-            <div class="unoptimized-dot2" style="top: calc(30% - 27.5px);" onclick="change()" id="top-dot"></div>
-            <div class="unoptimized-dot2" style="top: calc(70% - 27.5px);" onclick="change()" id="bottom-dot"></div>
+            <div class="unoptimized-dot2" style="left: calc(40% - 27.5px);" onclick="change(1)" id="left-dot"></div>
+            <div class="unoptimized-dot2" style="left: calc(60% - 27.5px);" onclick="change(2)" id="right-dot"></div>
+            <div class="unoptimized-dot2" style="top: calc(30% - 27.5px);" onclick="change(3)" id="top-dot"></div>
+            <div class="unoptimized-dot2" style="top: calc(70% - 27.5px);" onclick="change(4)" id="bottom-dot"></div>
         </div>
         <script class="test4">
             function getRandomColor() {
@@ -48,7 +48,8 @@
             dotElement3.classList.add(shuffled[2]);
             dotElement4.classList.add(shuffled[3]);
 
-            function change() {
+            function change(a) {
+                testData[curind].put([Date.now(), a, shuffled]);
                 const dotElementc = document.getElementById('center');
                 const dotElement = document.getElementById('left-dot');
                 const dotElement2 = document.getElementById('right-dot');
