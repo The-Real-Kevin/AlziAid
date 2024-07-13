@@ -4,7 +4,7 @@
         <div class="tempdisplay test4">
             <h1>Test 4/5: Color Variation</h1>
             <p class="error"> 
-                one dot will show on the screen, with four more surrounding it. Please click 
+                One dot will show on the screen, with four more surrounding it. Please click 
                 on the dot that is closest in color to the center dot. Do NOT click the center dot. 
                 </br>
                 </br>螢幕上將顯示一個點，周圍還有四個點。 請點選顏色最接近中心點的點。 不要點擊中心點。
@@ -65,8 +65,6 @@
                 dotElement3.style.backgroundColor = c;
                 dotElement4.style.backgroundColor = c;
 
-
-
                 dotElement.classList.remove(dotElement.classList[1])
                 dotElement2.classList.remove(dotElement2.classList[1])
                 dotElement3.classList.remove(dotElement3.classList[1])
@@ -77,6 +75,7 @@
                 dotElement2.classList.add(shuffled[1]);
                 dotElement3.classList.add(shuffled[2]);
                 dotElement4.classList.add(shuffled[3]);
+
                 counter = counter - 1;
                 if (counter == 0) {
                     textbox = document.getElementsByClassName("tempdisplay")[0];
