@@ -5,8 +5,10 @@
             <h1>Test 2/5: Anti-Saccadic Movement</h1>
             <p class="error"> 
                 When one of the green dots flashes, look at the OTHER dot that did not flash.
-            </br></br>螢幕中央有一個灰點，兩側各有兩個綠點。 當其中一個綠點閃爍時，請查看另一個未閃爍的點。</br></br>.
-
+            </br>
+            </br>螢幕中央有一個灰點，兩側各有兩個綠點。 當其中一個綠點閃爍時，請查看另一個未閃爍的點。
+            </br>
+            </br>.
         </p>
             <div class="buttons test2">
                 <button class="invis">This is placeholder</button>
@@ -24,10 +26,7 @@
         </div>
 
         <script class="test2">
-
-            counter = 10;
-
-
+            counter = 10;   
 
             function lol() {
                 const randomDot = Math.random() < 0.5 ? "left" : "right";
@@ -38,6 +37,7 @@
                     pickedDot.style.backgroundColor = "#888888";
                 }, 800);
                 counter = counter - 1;
+
                 if (counter == 0) {
                     textbox = document.getElementsByClassName("tempdisplay")[0];
                     textbox.style.display="block";
