@@ -40,6 +40,14 @@ function startTests() {
     startTimes.put(Date.now());
 }
 
+function finishTests() {
+    textbox = document.getElementsByClassName("tempdisplay")[0];
+    textbox.style.display="block";
+    textbox.getElementsByClassName('error')[0].textContent = "This test has finished. Click Continue to go to the next test.";
+    textbox.getElementsByClassName("yea")[0].textContent = "Continue ";
+    textbox.getElementsByClassName("yea")[0].onclick = why;
+}
+
 
 let camera_stream = null;
 let media_recorder = null;

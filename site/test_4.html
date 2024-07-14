@@ -79,11 +79,7 @@
                 counter = counter - 1;
                 if (counter == 0) {
                     pauseRecording();
-                    textbox = document.getElementsByClassName("tempdisplay")[0];
-                    textbox.style.display="block";
-                    textbox.getElementsByClassName('error')[0].textContent = "This test has finished. Click Continue to go to the next test.";
-                    textbox.getElementsByClassName("yea")[0].textContent = "Continue ";
-                    textbox.getElementsByClassName("yea")[0].onclick = why;
+                    finishTests();
                 }
             }
         </script>
