@@ -5,6 +5,9 @@ curind = 0;
 function bclick() {
     document.getElementsByClassName("tempdisplay")[0].style.display="none";
     startTests();
+    if (hehe != 1) {
+        resumeRecording();
+    }
 }
 
 function why() {
@@ -59,8 +62,16 @@ function startRecording() {
 		let video_local = URL.createObjectURL(new Blob(blobs_recorded, { type: 'video/webm' }));
 		download_link.href = video_local;
 	});
-}
 
-function endRecording () {
+}
+function pauseRecording() {
+    mediaRecorder.pause();
+};
+
+function resumeRecording() {
+    mediaRecorder.resume();
+};
+
+function endRecording() {
 	media_recorder.stop(); 
 }

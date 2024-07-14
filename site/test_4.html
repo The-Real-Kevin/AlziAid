@@ -78,6 +78,7 @@
 
                 counter = counter - 1;
                 if (counter == 0) {
+                    pauseRecording();
                     textbox = document.getElementsByClassName("tempdisplay")[0];
                     textbox.style.display="block";
                     textbox.getElementsByClassName('error')[0].textContent = "This test has finished. Click Continue to go to the next test.";

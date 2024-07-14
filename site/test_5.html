@@ -41,6 +41,7 @@
         function boopy() {
             counter = counter - 1;
             if (counter == 0) {
+                    endRecording();
                     document.getElementsByClassName("mainSec")[0].style.display="none";
                     textbox = document.getElementsByClassName("tempdisplay")[0];
                     textbox.style.display="block";
