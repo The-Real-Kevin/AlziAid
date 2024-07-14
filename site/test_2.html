@@ -1,22 +1,6 @@
 <!DOCTYPE html>
     <html>
     <body>
-        <div class="tempdisplay test2">
-            <h1>Test 2/5: Anti-Saccadic Movement</h1>
-            <p class="error"> 
-                When one of the green dots flashes, look at the OTHER dot that did not flash.
-            </br>
-            </br>螢幕中央有一個灰點，兩側各有兩個綠點。 當其中一個綠點閃爍時，請查看另一個未閃爍的點。
-            </br>
-            </br>.
-        </p>
-            <div class="buttons test2">
-                <button class="invis">This is placeholder</button>
-                <button class="yea" onclick="bclick(); lol();">Continue</button>
-            </div>
-        </div>
-        
-
         <div class="lol test2">
             <div style="height: 55px; width:55px;
             left: calc(50% - 27.5px);
@@ -27,7 +11,9 @@
 
         <script class="test2">
             counter = 10;   
-
+            function startTest() {
+                lol();
+            }
             function lol() {
                 const randomDot = Math.random() < 0.5 ? "left" : "right";
                 const pickedDot = document.getElementById(randomDot + "-dot");

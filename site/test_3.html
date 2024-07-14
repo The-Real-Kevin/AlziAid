@@ -1,20 +1,6 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <div class="tempdisplay test3" id="dialogue-box">
-            <h1>Test 3/5: Smooth Movement</h1>
-            <p class="error test3">
-                A green dot will smoothly move around the page. Please use your eyes to follow the green dot’s movement.
-                <br>
-                <br>一個綠點將平滑地在頁面上移動。 請用眼睛跟隨綠點的移動。
-                <br>
-                </br>.
-            </p>
-            <div class="buttons">
-                <button class="invis">This is placeholder</button>
-                <button class="yea" onclick="bclick(); marfix()">Continue</button>
-            </div>
-        </div>
         <div class="lol test3">
             <marquee behavior="alternate" scrollamount="20" id="marq1">
                 <marquee behavior="alternate" scrollamount="20" direction="down" id="marq2">
@@ -27,7 +13,7 @@
             const marquee1 = document.getElementById("marq1");
             const marquee2 = document.getElementById("marq2");
             counter = 10
-            function marfix() {
+            function startTest() {
                 marquee1.style.display = 'block';
                 marquee2.style.display = 'block';
             }

@@ -11,19 +11,6 @@
 
 
     <body>
-        <div class="tempdisplay test1">
-            <h1>Test 1/5: Saccadic Move`ment</h1>
-            <p class="error"> 
-                A grey dot will be at center of screen, focus your eyes on the grey dot. When a green dot appears, look at the green dot directly as fast as you can, until it disappears again. 
-                </br>
-                </br>螢幕中央將出現一個灰點，將眼睛聚焦在灰點上。 當綠點出現時，盡可能快速地直視綠點，直到它再次消失。
-                </br>.
-            </p>
-            <div class="buttons test1">
-                <button class="invis">This is placeholder</button>
-                <button class="yea" onclick="click(); startRecording(); updateGreenDotPosition();">Continue</button>
-            </div>
-        </div>
         <div id="canvas" class="test1"></div>
         <div id="includedContent"></div>
         <script class="fullCount"> 
@@ -42,7 +29,9 @@
         
             canvas.appendChild(centerDot);
             canvas.appendChild(greenDot);
-            
+            function startTest() {
+                updateGreenDotPosition();
+            }
             function updateGreenDotPosition() {
                 
                 if (counter == 0) {

@@ -1,22 +1,6 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <div class="tempdisplay test4">
-            <h1>Test 4/5: Color Variation</h1>
-            <p class="error"> 
-                One dot will show on the screen, with four more surrounding it. Please click 
-                on the dot that is closest in color to the center dot. Do NOT click the center dot. 
-                </br>
-                </br>螢幕上將顯示一個點，周圍還有四個點。 請點選顏色最接近中心點的點。 不要點擊中心點。
-                </br> .
-            </p>
-            <div class="buttons">
-                <button class="invis">This is placeholder</button>
-                <button class="yea"onclick="bclick(); change(-1);">Continue</button>
-            </div>
-        </div>
-
-
         <div class="lol test4">
             <div style="height: 55px; width:55px;
             left: calc(50% - 27.5px);
@@ -27,6 +11,9 @@
             <div class="unoptimized-dot2" style="top: calc(70% - 27.5px);" onclick="change(4)" id="bottom-dot"></div>
         </div>
         <script class="test4">
+            function startTest() {
+                change(-1);
+            }
             function getRandomColor() {
                 const letters = '0123456789ABCDEF';
                 let color = '#';
