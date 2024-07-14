@@ -2,7 +2,13 @@
 hehe = 1;
 curind = 0;
 
-titles = ['Saccadic Movement', 'Anti-Saccadic Movement', 'Smooth Movement', 'Color Variation', 'Random Dot Kinematogram']
+titles = [
+    'Saccadic Movement', 
+    'Anti-Saccadic Movement', 
+    'Smooth Movement', 
+    'Color Variation', 
+    'Random Dot Kinematogram'
+]
 
 descriptions = [
     ```
