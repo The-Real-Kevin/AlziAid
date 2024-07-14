@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-    <html>
+<html>
     <body>
         <div class="tempdisplay test4">
             <h1>Test 4/5: Color Variation</h1>
@@ -40,6 +40,7 @@
             }
             counter = 15;
 
+            const dotElementc = document.getElementById('center');
             const dotElement = document.getElementById('left-dot');
             const dotElement2 = document.getElementById('right-dot');
             const dotElement3 = document.getElementById('top-dot');
@@ -52,11 +53,6 @@
 
             function change(a) {
                 testData[curind].put([Date.now(), a, shuffled]);
-                const dotElementc = document.getElementById('center');
-                const dotElement = document.getElementById('left-dot');
-                const dotElement2 = document.getElementById('right-dot');
-                const dotElement3 = document.getElementById('top-dot');
-                const dotElement4 = document.getElementById('bottom-dot');
 
                 c = getRandomColor();
                 dotElementc.style.backgroundColor = c;
@@ -78,7 +74,6 @@
 
                 counter = counter - 1;
                 if (counter == 0) {
-                    pauseRecording();
                     finishTests();
                 }
             }

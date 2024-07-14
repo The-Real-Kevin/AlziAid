@@ -1,102 +1,55 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <style class="test3">
-        .lol {
-            position: relative;
-            width: 100vw;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        .center-dot {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            height: 55px;
-            width: 55px;
-            background-color: black;
-            border-radius: 50%;
-        }
-
-        .smooth-dot {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            height: 20px;
-            width: 20px;
-            background-color: greenyellow;
-            border-radius: 50%;
-            transition: transform 2s linear;
-        }
-    </style>
-</head>
-<body>
-    <div class="tempdisplay test3" id="dialogue-box">
-        <h1>Test 3/5: Smooth Movement</h1>
-        <p class="error test3">
-            A green dot will smoothly move around the page. Please use your eyes to follow the green dot’s movement.
-            <br>
-            <br>一個綠點將平滑地在頁面上移動。 請用眼睛跟隨綠點的移動。
-            <br>
-            </br>.
-        </p>
-        <div class="buttons">
-            <button class="invis">This is placeholder</button>
-            <button class="yea" onclick="bclick(); marfix()">Continue</button>
+    <body>
+        <div class="tempdisplay test3" id="dialogue-box">
+            <h1>Test 3/5: Smooth Movement</h1>
+            <p class="error test3">
+                A green dot will smoothly move around the page. Please use your eyes to follow the green dot’s movement.
+                <br>
+                <br>一個綠點將平滑地在頁面上移動。 請用眼睛跟隨綠點的移動。
+                <br>
+                </br>.
+            </p>
+            <div class="buttons">
+                <button class="invis">This is placeholder</button>
+                <button class="yea" onclick="bclick(); marfix()">Continue</button>
+            </div>
         </div>
-    </div>
-    <div class="lol test3">
-        <marquee behavior="alternate" scrollamount="20" id="marq1">
-            <marquee behavior="alternate" scrollamount="20" direction="down" id="marq2">
-                <div class="unoptimized-dot"></div>
+        <div class="lol test3">
+            <marquee behavior="alternate" scrollamount="20" id="marq1">
+                <marquee behavior="alternate" scrollamount="20" direction="down" id="marq2">
+                    <div class="unoptimized-dot"></div>
+                </marquee>
             </marquee>
-        </marquee>
-    </div>
+        </div>
 
-    <script class="test3">
-        const marquee1 = document.getElementById("marq1");
-        const marquee2 = document.getElementById("marq2");
-        counter = 10
-        function marfix() {
-            marquee1.style.display = 'block';
-            marquee2.style.display = 'block';
-        }
-        function adjustScrollamount() {
-            if (counter == 0) {
-                pauseRecording();
-                finishTests();
+        <script class="test3">
+            const marquee1 = document.getElementById("marq1");
+            const marquee2 = document.getElementById("marq2");
+            counter = 10
+            function marfix() {
+                marquee1.style.display = 'block';
+                marquee2.style.display = 'block';
             }
-            m1s = Math.floor(Math.random() * 60) + 10
-            m2s = Math.floor(Math.random() * 0) + 10
-            marquee1.setAttribute("scrollamount", m1s);
-            marquee2.setAttribute("scrollamount", m2s);
-            
-            testData[curind].put([Date.now(), m1s, m2s]);
-            setTimeout(adjustScrollamount, 500);
-            counter -= 1
-        }
-
-        setTimeout(() => {
-            document.getElementById('marq1').style.display='none'; 
-        }, 50)
-
-
-    </script>
-
-    <script>
-        w = window.innerWidth
-        setInterval(() => {
-            if (Math.abs(window.innerWidth - w) > 200) {
-                textbox = document.getElementsByClassName("tempdisplay")[0];
-                textbox.style.display="block";
-                textbox.getElementsByClassName('error')[0].textContent = "Do not resize or rotate the window or device while doing tests. This will invalidate the validity of the test.\nPlease reload the webpage to continue.\n\n進行測試時請勿調整視窗或設備的大小或旋轉視窗或設備。這將使測試的有效性失效。請重新加載網頁以繼續。";
-                textbox.getElementsByClassName("yea")[0].textContent = "Reload";
-                textbox.getElementsByClassName("yea")[0].onclick = function() { location.reload(); };
+            function adjustScrollamount() {
+                if (counter == 0) {
+                    finishTests();
+                }
+                m1s = Math.floor(Math.random() * 60) + 10
+                m2s = Math.floor(Math.random() * 0) + 10
+                marquee1.setAttribute("scrollamount", m1s);
+                marquee2.setAttribute("scrollamount", m2s);
+                
+                testData[curind].put([Date.now(), m1s, m2s]);
+                setTimeout(adjustScrollamount, 500);
+                counter -= 1
             }
-        }, 1);
-    </script>
-</body>
+
+            setTimeout(() => {
+                document.getElementById('marq1').style.display='none'; 
+            }, 50)
+
+
+        </script>
+    </body>
 </html>

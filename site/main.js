@@ -41,6 +41,7 @@ function startTests() {
 }
 
 function finishTests() {
+    pauseRecording();
     textbox = document.getElementsByClassName("tempdisplay")[0];
     textbox.style.display="block";
     textbox.getElementsByClassName('error')[0].textContent = "This test has finished. Click Continue to go to the next test.";
@@ -83,3 +84,15 @@ function resumeRecording() {
 function endRecording() {
 	media_recorder.stop(); 
 }
+
+
+w = window.innerWidth
+setInterval(() => {
+    if (Math.abs(window.innerWidth - w) != 0) {
+        textbox = document.getElementsByClassName("tempdisplay")[0];
+        textbox.style.display="block";
+        textbox.getElementsByClassName('error')[0].textContent = "Do not resize or rotate the window or device while doing tests. This will invalidate the validity of the test.\nPlease reload the webpage to continue.\n\n進行測試時請勿調整視窗或設備的大小或旋轉視窗或設備。這將使測試的有效性失效。請重新加載網頁以繼續。";
+        textbox.getElementsByClassName("yea")[0].textContent = "Reload";
+        textbox.getElementsByClassName("yea")[0].onclick = function() { location.reload(); };
+    }
+}, 1);

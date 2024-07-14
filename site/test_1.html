@@ -1,11 +1,12 @@
 <!DOCTYPE html>
     <html>
         <head>
+            <title>ALICE Data Collection Utility</title>
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
             <link rel="stylesheet" href="test.css">
             <script src="jquery-3.7.1.min.js" type="text/javascript" ></script>
             <script src="main.js" type="text/javascript" ></script>
-            <script src="WebGazer Demo_files/webgazer.js" type="text/javascript" ></script>
-            <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         </head>
 
 
@@ -45,7 +46,6 @@
             function updateGreenDotPosition() {
                 
                 if (counter == 0) {
-                    pauseRecording();
                     finishTests();
                 }
                 const currentTime = Date.now();
