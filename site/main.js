@@ -36,3 +36,31 @@ startTimes = []
 function startTests() {
     startTimes.put(Date.now());
 }
+
+
+let camera_stream = null;
+let media_recorder = null;
+let blobs_recorded = [];
+let video = document.querySelector("#video");
+
+function startRecording() {
+    
+	camera_stream = navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+	video.srcObject = camera_stream;
+
+    
+	media_recorder = new MediaRecorder(camera_stream, { mimeType: 'video/webm' });
+
+    media_recorder.addEventListener('dataavailable', function(e) {
+	    blobs_recorded.push(e.data);
+	});
+
+	media_recorder.addEventListener('stop', function() {
+		let video_local = URL.createObjectURL(new Blob(blobs_recorded, { type: 'video/webm' }));
+		download_link.href = video_local;
+	});
+}
+
+function endRecording () {
+	media_recorder.stop(); 
+}
