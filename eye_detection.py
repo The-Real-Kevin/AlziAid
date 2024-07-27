@@ -2,7 +2,6 @@ import cv2
 import numpy as np
 import time
 
-asdf222 = 225
 class multi_eye_pupil_detection():
     def __init__(self):
         self._pupils = []
@@ -20,7 +19,7 @@ class multi_eye_pupil_detection():
             x = int(x+w // 7.2)
             y = int(y+h // 4.2)
             w = int(w // 1.4)
-            h = int(h//4)
+            h = int(h//3)
 
             cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 255), 2)
             roi_gray = gray[y:y+h, x:x+w]
@@ -30,7 +29,6 @@ class multi_eye_pupil_detection():
         return eyes
 
     def detect_pupil(self, eye_frame):
-        global asdf222
         dst = cv2.fastNlMeansDenoisingColored(eye_frame, None, 10, 10, 7, 21)
         
         threshold = cv2.cvtColor(cv2.bitwise_not(cv2.GaussianBlur(dst, (5, 5), 0)), cv2.COLOR_BGR2GRAY)
@@ -38,7 +36,7 @@ class multi_eye_pupil_detection():
         kernel = np.ones((2, 2), np.uint8)
         erosion = cv2.erode(threshold, kernel, iterations=1)
         
-        _, thresh1 = cv2.threshold(erosion, asdf222, 255, cv2.THRESH_BINARY)
+        _, thresh1 = cv2.threshold(erosion, 225, 255, cv2.THRESH_BINARY)
         
         contours, _ = cv2.findContours(thresh1, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
         
@@ -99,10 +97,9 @@ class multi_eye_pupil_detection():
             if not ret:
                 print("Failed to grab frame")
                 break
-            print(f"current thres {asdf222}")
             result_frame = self.process_frame(frame)
 
-            cv2.imshow("frame", result_frame)
+            cv2.imshow("frame")
 
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
