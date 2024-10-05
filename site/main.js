@@ -142,8 +142,7 @@ function startRecording() {
 	camera_stream = navigator.mediaDevices.getUserMedia({ video: true, audio: true });
 	video.srcObject = camera_stream;
 
-    
-	media_recorder = new MediaRecorder(camera_stream, { mimeType: 'video/webm' });
+    media_recorder = new MediaRecorder(camera_stream, { mimeType: 'video/webm' });
 
     media_recorder.addEventListener('dataavailable', function(e) {
 	    blobs_recorded.push(e.data);
