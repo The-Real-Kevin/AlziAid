@@ -36,7 +36,7 @@ class multi_eye_pupil_detection():
         kernel = np.ones((2, 2), np.uint8)
         erosion = cv2.erode(threshold, kernel, iterations=1)
         
-        _, thresh1 = cv2.threshold(erosion, 225, 255, cv2.THRESH_BINARY)
+        _, thresh1 = cv2.threshold(erosion, 215, 255, cv2.THRESH_BINARY)
         
         contours, _ = cv2.findContours(thresh1, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
         
@@ -99,7 +99,7 @@ class multi_eye_pupil_detection():
                 break
             result_frame = self.process_frame(frame)
 
-            cv2.imshow("frame")
+            cv2.imshow("frame", result_frame)
 
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break

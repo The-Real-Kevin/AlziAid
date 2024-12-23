@@ -1,40 +1,69 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <div class="lol test3">
-            <marquee behavior="alternate" scrollamount="20" id="marq1">
-                <marquee behavior="alternate" scrollamount="20" direction="down" id="marq2">
-                    <div class="unoptimized-dot"></div>
-                </marquee>
-            </marquee>
-        </div>
-
         <script class="test3">
-            const marquee1 = document.getElementById("marq1");
-            const marquee2 = document.getElementById("marq2");
-            counter = 10
-            function startTest() {
-                marquee1.style.display = 'block';
-                marquee2.style.display = 'block';
-            }
-            function adjustScrollamount() {
-                if (counter == 0) {
+            lol = true;
+            greenDot = document.createElement("div");
+            greenDot.classList.add("test3");
+            greenDot.style.position = "absolute";
+            greenDot.style.width = "20px";
+            greenDot.style.height = "20px";
+            greenDot.style.backgroundColor = "green";
+            greenDot.style.borderRadius = "50%";
+            greenDot.style.left = "50%";
+            greenDot.style.top = "50%";
+            greenDot.style.transform = "translate(-50%, -50%)";
+
+            // Variables for smooth movement
+            let x = window.innerWidth / 2; // Start at the center of the screen
+            let y = window.innerHeight / 2;
+            let angle = Math.random() * 2 * Math.PI; // Random initial direction
+            const speed = 2; // Speed of the dot
+
+            // Function to update the green dot's position
+            function updatePosition() {
+                if (!lol) {
+                    
                     finishTests();
+                    greenDot.style.display = "none";
+                    return;
                 }
-                m1s = Math.floor(Math.random() * 60) + 10
-                m2s = Math.floor(Math.random() * 0) + 10
-                marquee1.setAttribute("scrollamount", m1s);
-                marquee2.setAttribute("scrollamount", m2s);
-                
-                testData[curind].put([Date.now(), m1s, m2s]);
-                setTimeout(adjustScrollamount, 500);
-                counter -= 1
+                // Update x and y based on the angle
+                x += speed * Math.cos(angle);
+                y += speed * Math.sin(angle);
+
+                // Bounce off walls
+                if (x <= 10 || x >= window.innerWidth - 10) {
+                    angle = Math.PI - angle; // Reverse direction horizontally
+                }
+                if (y <= 10 || y >= window.innerHeight - 10) {
+                    angle = -angle; // Reverse direction vertically
+                }
+
+                // Update the dot's position
+                greenDot.style.left = `${x}px`;
+                greenDot.style.top = `${y}px`;
+
+                // Request the next animation frame
+                requestAnimationFrame(updatePosition);
             }
+
+            function startTest() {
+                document.body.appendChild(greenDot);
+                updatePosition();
+
+            }
+
+
+            // Adjust the position if the window is resized
+            window.addEventListener("resize", () => {
+                x = window.innerWidth / 2;
+                y = window.innerHeight / 2;
+            });
 
             setTimeout(() => {
-                document.getElementById('marq1').style.display='none'; 
-            }, 50)
-
+                lol = false;
+            }, 25000)
 
         </script>
     </body>

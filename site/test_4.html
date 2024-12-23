@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <div class="lol test4">
-            <div style="height: 55px; width:55px;
-            left: calc(50% - 27.5px);
-            top: calc(50% - 27.5px);"class="center-dot" id="center"></div>
+        <div class="lol test4" style="left: 0; width: 100%;">
+            <div style="height: 55px; width:55px; z-index: 1000;"class="center-dot" id="center"></div>
             <div class="unoptimized-dot2" style="left: calc(40% - 27.5px);" onclick="change(1)" id="left-dot"></div>
             <div class="unoptimized-dot2" style="left: calc(60% - 27.5px);" onclick="change(2)" id="right-dot"></div>
             <div class="unoptimized-dot2" style="top: calc(30% - 27.5px);" onclick="change(3)" id="top-dot"></div>
@@ -39,7 +37,7 @@
             dotElement4.classList.add(shuffled[3]);
 
             function change(a) {
-                testData[curind].put([Date.now(), a, shuffled]);
+                testData[curind].push([Date.now(), a, shuffled]);
 
                 c = getRandomColor();
                 dotElementc.style.backgroundColor = c;
@@ -60,8 +58,9 @@
                 dotElement4.classList.add(shuffled[3]);
 
                 counter = counter - 1;
+                
                 if (counter == 0) {
-                    finishTests();
+                    endRecording();
                 }
             }
         </script>
