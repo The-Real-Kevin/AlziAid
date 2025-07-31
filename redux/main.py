@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import filedialog
+from tkinter import filedialog, messagebox
 import cv2
 import numpy as np
 from gaze_tracking import GazeTracking
@@ -34,9 +34,25 @@ class SmoothPursuitTest:
         self.move_start_time = 0
         self.move_duration = 0.5
         self.dot_radius = max(10, self.canvas_width * 0.01)
-        self.calibrate_button = tk.Button(root, text="Calibrate", command=self.calibrate)
+        self.calibrate_button = tk.Button(root, text="Calibrate", command=self.show_start_instructions)
         self.calibrate_button.pack(pady=5)
         print("Calibration button created")
+
+    def show_start_instructions(self):
+        """Show popup with test instructions before calibration."""
+        instructions = (
+            "Welcome to the Alzheimer's Eye Tracking Test\n\n"
+            "Instructions:\n"
+            "- Please sit comfortably in front of your webcam.\n"
+            "- Ensure your face is well-lit and centered in the camera view.\n"
+            "- Follow the blue dot with your eyes during calibration.\n"
+            "- During the test, track the red dot as it moves across the screen.\n"
+            "- The test will last approximately 30 seconds.\n"
+            "- Do not move your head; only move your eyes to follow the dot.\n\n"
+            "Click 'OK' to begin calibration."
+        )
+        messagebox.showinfo("Test Instructions", instructions)
+        self.calibrate()
 
     def calibrate(self):
         print("Starting calibration")
@@ -73,7 +89,7 @@ class SmoothPursuitTest:
             self.dot_pos[0] + self.dot_radius, self.dot_pos[1] + self.dot_radius,
             fill="red"
         )
-        self.next_button = tk.Button(self.root, text="Next", command=self.save_results)
+        self.next_button = tk.Button(self.root, text="Next", command=self.show_save_instructions)
         self.next_button.pack(pady=5)
         self.move_start_time = time.time()
         self.target_pos = self.dot_pos.copy()
@@ -107,40 +123,56 @@ class SmoothPursuitTest:
             self.root.after(16, self.move_dot)
 
     def update(self):
-	    if self.test_running and (time.time() - self.start_time) < 30:
-	        ret, frame = self.webcam.read()
-	        if ret:
-	            self.gaze.refresh(frame)
-	            if self.gaze.pupils_located:
-	                left_coords = self.gaze.pupil_left_coords()
-	                right_coords = self.gaze.pupil_right_coords()
-	                print(f"Raw left: {left_coords}, Raw right: {right_coords}")
-	                if left_coords and right_coords:
-	                    webcam_width, webcam_height = self.webcam.get(3), self.webcam.get(4)
-	                    gaze_x = 1 - (left_coords[0] + right_coords[0]) / 2 / webcam_width  # Flip x
-	                    gaze_y = (left_coords[1] + right_coords[1]) / 2 / webcam_height
-	                elif left_coords:
-	                    gaze_x = 1 - left_coords[0] / self.webcam.get(3)  # Flip x
-	                    gaze_y = left_coords[1] / self.webcam.get(4)
-	                elif right_coords:
-	                    gaze_x = 1 - right_coords[0] / self.webcam.get(3)  # Flip x
-	                    gaze_y = right_coords[1] / self.webcam.get(4)
-	                else:
-	                    gaze_x, gaze_y = None, None
-	                if gaze_x is not None and gaze_y is not None:
-	                    gaze_x = max(0, min(1, gaze_x)) * self.canvas_width
-	                    gaze_y = max(0, min(1, gaze_y)) * self.canvas_height
-	                    distance = np.sqrt((gaze_x - self.dot_pos[0])**2 + (gaze_y - self.dot_pos[1])**2)
-	                    self.gaze_data.append([time.time() - self.start_time, distance])
-	                if self.gaze.is_blinking():
-	                    self.blink_count += 1
-	                print(f"Normalized gaze: ({gaze_x}, {gaze_y}), Distance: {distance if gaze_x is not None else 'None'}")
-	        self.root.after(16, self.update)
-	    elif self.test_running:
-	        self.test_running = False
-	        self.canvas.delete(self.dot)
-	        self.next_button.focus_set()
-	        print("Test complete")
+        if self.test_running and (time.time() - self.start_time) < 30:
+            ret, frame = self.webcam.read()
+            if ret:
+                self.gaze.refresh(frame)
+                if self.gaze.pupils_located:
+                    left_coords = self.gaze.pupil_left_coords()
+                    right_coords = self.gaze.pupil_right_coords()
+                    print(f"Raw left: {left_coords}, Raw right: {right_coords}")
+                    if left_coords and right_coords:
+                        webcam_width, webcam_height = self.webcam.get(3), self.webcam.get(4)
+                        gaze_x = 1 - (left_coords[0] + right_coords[0]) / 2 / webcam_width  # Flip x
+                        gaze_y = (left_coords[1] + right_coords[1]) / 2 / webcam_height
+                    elif left_coords:
+                        gaze_x = 1 - left_coords[0] / self.webcam.get(3)  # Flip x
+                        gaze_y = left_coords[1] / self.webcam.get(4)
+                    elif right_coords:
+                        gaze_x = 1 - right_coords[0] / self.webcam.get(3)  # Flip x
+                        gaze_y = right_coords[1] / self.webcam.get(4)
+                    else:
+                        gaze_x, gaze_y = None, None
+                    if gaze_x is not None and gaze_y is not None:
+                        gaze_x = max(0, min(1, gaze_x)) * self.canvas_width
+                        gaze_y = max(0, min(1, gaze_y)) * self.canvas_height
+                        distance = np.sqrt((gaze_x - self.dot_pos[0])**2 + (gaze_y - self.dot_pos[1])**2)
+                        self.gaze_data.append([time.time() - self.start_time, distance])
+                    if self.gaze.is_blinking():
+                        self.blink_count += 1
+                    print(f"Normalized gaze: ({gaze_x}, {gaze_y}), Distance: {distance if gaze_x is not None else 'None'}")
+            self.root.after(16, self.update)
+        elif self.test_running:
+            self.test_running = False
+            self.canvas.delete(self.dot)
+            self.next_button.focus_set()
+            print("Test complete")
+
+    def show_save_instructions(self):
+        """Show popup with instructions for saving and submitting results."""
+        instructions = (
+            "Test Complete!\n\n"
+            "Instructions for Saving Results:\n"
+            "- Click 'OK' to open a file save dialog.\n"
+            "- Choose a location to save the results as a CSV file.\n"
+            "- Name the file clearly, e.g., 'EyeTracking_YourName_Date.csv'.\n"
+            "- After saving, please upload the file to our Google Drive link: [Insert Google Drive Link Here]\n"
+            "- Alternatively, email the file to: [Insert Email Address Here]\n"
+            "- Ensure the file is sent within 24 hours for analysis.\n\n"
+            "Thank you for participating!"
+        )
+        messagebox.showinfo("Save Results", instructions)
+        self.save_results()
 
     def save_results(self):
         print("Saving results")
