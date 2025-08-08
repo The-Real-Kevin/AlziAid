@@ -6,10 +6,17 @@ from gaze_tracking import GazeTracking
 import time
 import csv
 import random
+import logging
 
 class SmoothPursuitTest:
     def __init__(self, root):
-        print("Initializing SmoothPursuitTest")
+        # Configure logging with FileHandler to overwrite app_error.log
+        logger = logging.getLogger()
+        logger.setLevel(logging.DEBUG)
+        handler = logging.FileHandler('app_error.log', mode='w')
+        handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+        logger.addHandler(handler)
+        logging.debug("Initializing SmoothPursuitTest")
         self.root = root
         self.root.title("Alzheimer's Eye Tracking Test")
         # Fixed canvas size (720p) with 50px margins
@@ -22,21 +29,22 @@ class SmoothPursuitTest:
         self.canvas.pack(pady=10)
         self.gaze = GazeTracking()
         self.webcam = cv2.VideoCapture(0)
-        print(f"Webcam initialized: {self.webcam.isOpened()}")
+        logging.debug(f"Webcam initialized: {self.webcam.isOpened()}")
         self.test_running = False
         self.start_time = 0
         self.dot_pos = [self.canvas_width / 2, self.canvas_height / 2]
-        self.target_pos = self.dot_pos.copy()
+        self.dot_velocity = [0, 0]  # [vx, vy] in pixels per second
         self.gaze_data = []
         self.blink_count = 0
         self.dot = None
         self.next_button = None
-        self.move_start_time = 0
-        self.move_duration = 0.5
         self.dot_radius = max(10, self.canvas_width * 0.01)
+        self.move_duration = 5.0  # Time to move in one direction before changing
+        self.move_start_time = 0
+        self.last_log_time = 0
         self.calibrate_button = tk.Button(root, text="Calibrate", command=self.show_start_instructions)
         self.calibrate_button.pack(pady=5)
-        print("Calibration button created")
+        logging.debug("Calibration button created")
 
     def show_start_instructions(self):
         """Show popup with test instructions before calibration."""
@@ -47,7 +55,7 @@ class SmoothPursuitTest:
             "- Ensure your face is well-lit and centered in the camera view.\n"
             "- Follow the blue dot with your eyes during calibration.\n"
             "- During the test, track the red dot as it moves across the screen.\n"
-            "- The test will last approximately 30 seconds.\n"
+            "- The test will last approximately 60 seconds.\n"
             "- Do not move your head; only move your eyes to follow the dot.\n\n"
             "Click 'OK' to begin calibration."
         )
@@ -55,7 +63,7 @@ class SmoothPursuitTest:
         self.calibrate()
 
     def calibrate(self):
-        print("Starting calibration")
+        logging.debug("Starting calibration")
         calibration_points = [
             (self.margin + self.active_width * 0.1, self.margin + self.active_height * 0.1),
             (self.margin + self.active_width * 0.9, self.margin + self.active_height * 0.1),
@@ -74,16 +82,17 @@ class SmoothPursuitTest:
             ret, frame = self.webcam.read()
             if ret:
                 self.gaze.refresh(frame)
-            print(f"Calibration point: {point}")
+            logging.debug(f"Calibration point: {point}")
         self.canvas.delete("all")
         self.calibrate_button.destroy()
-        print("Calibration complete")
+        logging.debug("Calibration complete")
         self.start_test()
 
     def start_test(self):
-        print("Starting test")
+        logging.debug("Starting test")
         self.test_running = True
         self.start_time = time.time()
+        self.last_log_time = self.start_time
         self.dot = self.canvas.create_oval(
             self.dot_pos[0] - self.dot_radius, self.dot_pos[1] - self.dot_radius,
             self.dot_pos[0] + self.dot_radius, self.dot_pos[1] + self.dot_radius,
@@ -91,72 +100,98 @@ class SmoothPursuitTest:
         )
         self.next_button = tk.Button(self.root, text="Next", command=self.show_save_instructions)
         self.next_button.pack(pady=5)
-        self.move_start_time = time.time()
-        self.target_pos = self.dot_pos.copy()
+        self.move_start_time = self.start_time
+        self.set_new_velocity()
         self.move_dot()
         self.update()
+
+    def set_new_velocity(self):
+        """Set a new random velocity for the dot."""
+        speed = random.uniform(200, 400)  # Pixels per second
+        angle = random.uniform(0, 2 * np.pi)
+        self.dot_velocity = [speed * np.cos(angle), speed * np.sin(angle)]
+        logging.debug(f"New velocity: {self.dot_velocity}")
 
     def move_dot(self):
         if self.test_running:
             current_time = time.time()
-            if current_time - self.move_start_time >= 2:
-                self.dot_pos = self.target_pos.copy()
-                self.target_pos = [
-                    random.randint(int(self.margin + self.active_width * 0.1), int(self.margin + self.active_width * 0.9)),
-                    random.randint(int(self.margin + self.active_height * 0.1), int(self.margin + self.active_height * 0.9))
-                ]
+            dt = current_time - self.move_start_time
+            if dt >= self.move_duration:
+                self.set_new_velocity()
                 self.move_start_time = current_time
-                print(f"New target: {self.target_pos}")
+                dt = 0
 
-            elapsed = current_time - self.move_start_time
-            t = min(elapsed / self.move_duration, 1.0)
-            if t < 1:
-                eased_t = t * t * (3 - 2 * t)
-                x = self.dot_pos[0] + (self.target_pos[0] - self.dot_pos[0]) * eased_t
-                y = self.dot_pos[1] + (self.target_pos[1] - self.dot_pos[1]) * eased_t
-                self.dot_pos = [x, y]
-                self.canvas.coords(
-                    self.dot,
-                    x - self.dot_radius, y - self.dot_radius,
-                    x + self.dot_radius, y + self.dot_radius
-                )
+            # Update position with fixed time step
+            dt_frame = 0.016  # ~16ms per frame
+            x = self.dot_pos[0] + self.dot_velocity[0] * dt_frame
+            y = self.dot_pos[1] + self.dot_velocity[1] * dt_frame
+
+            # Check boundaries and reverse direction if needed
+            min_x = self.margin + self.active_width * 0.1
+            max_x = self.margin + self.active_width * 0.9
+            min_y = self.margin + self.active_height * 0.1
+            max_y = self.margin + self.active_height * 0.9
+
+            if x < min_x or x > max_x:
+                self.dot_velocity[0] = -self.dot_velocity[0]
+                x = max(min_x, min(max_x, x))
+                self.set_new_velocity()
+                self.move_start_time = current_time
+            if y < min_y or y > max_y:
+                self.dot_velocity[1] = -self.dot_velocity[1]
+                y = max(min_y, min(max_y, y))
+                self.set_new_velocity()
+                self.move_start_time = current_time
+
+            self.dot_pos = [x, y]
+            self.canvas.coords(
+                self.dot,
+                x - self.dot_radius, y - self.dot_radius,
+                x + self.dot_radius, y + self.dot_radius
+            )
             self.root.after(16, self.move_dot)
 
     def update(self):
-        if self.test_running and (time.time() - self.start_time) < 30:
+        if self.test_running and (time.time() - self.start_time) < 60:
+            current_time = time.time()
             ret, frame = self.webcam.read()
+            gaze_x, gaze_y, distance = None, None, None
             if ret:
                 self.gaze.refresh(frame)
                 if self.gaze.pupils_located:
                     left_coords = self.gaze.pupil_left_coords()
                     right_coords = self.gaze.pupil_right_coords()
-                    print(f"Raw left: {left_coords}, Raw right: {right_coords}")
+                    logging.debug(f"Raw left: {left_coords}, Raw right: {right_coords}")
                     if left_coords and right_coords:
                         webcam_width, webcam_height = self.webcam.get(3), self.webcam.get(4)
-                        gaze_x = 1 - (left_coords[0] + right_coords[0]) / 2 / webcam_width  # Flip x
+                        gaze_x = 1 - (left_coords[0] + right_coords[0]) / 2 / webcam_width
                         gaze_y = (left_coords[1] + right_coords[1]) / 2 / webcam_height
                     elif left_coords:
-                        gaze_x = 1 - left_coords[0] / self.webcam.get(3)  # Flip x
+                        gaze_x = 1 - left_coords[0] / self.webcam.get(3)
                         gaze_y = left_coords[1] / self.webcam.get(4)
                     elif right_coords:
-                        gaze_x = 1 - right_coords[0] / self.webcam.get(3)  # Flip x
+                        gaze_x = 1 - right_coords[0] / self.webcam.get(3)
                         gaze_y = right_coords[1] / self.webcam.get(4)
-                    else:
-                        gaze_x, gaze_y = None, None
                     if gaze_x is not None and gaze_y is not None:
                         gaze_x = max(0, min(1, gaze_x)) * self.canvas_width
                         gaze_y = max(0, min(1, gaze_y)) * self.canvas_height
                         distance = np.sqrt((gaze_x - self.dot_pos[0])**2 + (gaze_y - self.dot_pos[1])**2)
-                        self.gaze_data.append([time.time() - self.start_time, distance])
                     if self.gaze.is_blinking():
                         self.blink_count += 1
-                    print(f"Normalized gaze: ({gaze_x}, {gaze_y}), Distance: {distance if gaze_x is not None else 'None'}")
+                    logging.debug(f"Normalized gaze: ({gaze_x}, {gaze_y}), Distance: {distance if distance is not None else 'None'}")
+
+            # Log data every second
+            if current_time - self.last_log_time >= 1.0:
+                self.gaze_data.append([current_time - self.start_time, distance if distance is not None else -1, self.blink_count])
+                self.last_log_time = current_time
+                logging.debug(f"Logged data: {self.gaze_data[-1]}")
+
             self.root.after(16, self.update)
         elif self.test_running:
             self.test_running = False
             self.canvas.delete(self.dot)
             self.next_button.focus_set()
-            print("Test complete")
+            logging.debug("Test complete")
 
     def show_save_instructions(self):
         """Show popup with instructions for saving and submitting results."""
@@ -175,7 +210,7 @@ class SmoothPursuitTest:
         self.save_results()
 
     def save_results(self):
-        print("Saving results")
+        logging.debug("Saving results")
         self.test_running = False
         self.webcam.release()
         file_path = filedialog.asksaveasfilename(defaultextension=".csv", filetypes=[("CSV files", "*.csv")])
@@ -184,7 +219,7 @@ class SmoothPursuitTest:
                 writer = csv.writer(f)
                 writer.writerow(["Timestamp (s)", "Gaze-Dot Distance (pixels)", "Blink Count"])
                 for data in self.gaze_data:
-                    writer.writerow([data[0], data[1], self.blink_count])
+                    writer.writerow([f"{data[0]:.2f}", f"{data[1]:.2f}" if data[1] != -1 else "N/A", data[2]])
         self.root.quit()
 
 if __name__ == "__main__":

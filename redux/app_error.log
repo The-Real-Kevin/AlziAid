@@ -1,0 +1,424 @@
+2025-08-08 19:09:50,991 - DEBUG - Initializing SmoothPursuitTest
+2025-08-08 19:09:52,920 - DEBUG - Webcam initialized: True
+2025-08-08 19:09:52,932 - DEBUG - Calibration button created
+2025-08-08 19:09:57,021 - DEBUG - Starting calibration
+2025-08-08 19:09:59,245 - DEBUG - Calibration point: (168.0, 107.0)
+2025-08-08 19:10:01,422 - DEBUG - Calibration point: (1112.0, 107.0)
+2025-08-08 19:10:03,620 - DEBUG - Calibration point: (1112.0, 563.0)
+2025-08-08 19:10:05,787 - DEBUG - Calibration point: (168.0, 563.0)
+2025-08-08 19:10:05,787 - DEBUG - Calibration complete
+2025-08-08 19:10:05,788 - DEBUG - Starting test
+2025-08-08 19:10:05,789 - DEBUG - New velocity: [np.float64(105.30798151487353), np.float64(170.92606823015916)]
+2025-08-08 19:10:05,922 - DEBUG - Raw left: (np.int32(845), np.int32(707)), Raw right: (np.int32(1089), np.int32(712))
+2025-08-08 19:10:05,923 - DEBUG - Normalized gaze: (635.3333333333333, 473.0), Distance: 110.44796654016412
+2025-08-08 19:10:06,089 - DEBUG - Raw left: (np.int32(845), np.int32(707)), Raw right: (np.int32(1090), np.int32(711))
+2025-08-08 19:10:06,089 - DEBUG - Normalized gaze: (635.0, 472.66666666666663), Distance: 107.52329167573322
+2025-08-08 19:10:06,258 - DEBUG - Raw left: (np.int32(830), np.int32(709)), Raw right: (np.int32(1092), np.int32(712))
+2025-08-08 19:10:06,258 - DEBUG - Normalized gaze: (639.3333333333334, 473.66666666666663), Distance: 105.61729907021015
+2025-08-08 19:10:06,422 - DEBUG - Raw left: (np.int32(830), np.int32(707)), Raw right: (np.int32(1079), np.int32(711))
+2025-08-08 19:10:06,422 - DEBUG - Normalized gaze: (643.6666666666667, 472.66666666666663), Distance: 101.77380392430813
+2025-08-08 19:10:06,590 - DEBUG - Raw left: (np.int32(830), np.int32(707)), Raw right: (np.int32(1078), np.int32(711))
+2025-08-08 19:10:06,590 - DEBUG - Normalized gaze: (644.0, 472.66666666666663), Distance: 99.09141516960965
+2025-08-08 19:10:06,757 - DEBUG - Raw left: (np.int32(839), np.int32(709)), Raw right: (np.int32(1076), np.int32(711))
+2025-08-08 19:10:06,757 - DEBUG - Normalized gaze: (641.6666666666665, 473.33333333333337), Distance: 97.29145818423143
+2025-08-08 19:10:06,924 - DEBUG - Raw left: (np.int32(830), np.int32(707)), Raw right: (np.int32(1083), np.int32(713))
+2025-08-08 19:10:06,924 - DEBUG - Normalized gaze: (642.3333333333334, 473.33333333333337), Distance: 94.6635985328789
+2025-08-08 19:10:07,090 - DEBUG - Raw left: (np.int32(831), np.int32(705)), Raw right: (np.int32(1083), np.int32(712))
+2025-08-08 19:10:07,090 - DEBUG - Normalized gaze: (642.0, 472.33333333333337), Distance: 91.1803013209177
+2025-08-08 19:10:07,090 - DEBUG - Logged data: [1.15289306640625, np.float64(91.1803013209177), 2]
+2025-08-08 19:10:07,256 - DEBUG - Raw left: (np.int32(830), np.int32(706)), Raw right: (np.int32(1073), np.int32(712))
+2025-08-08 19:10:07,256 - DEBUG - Normalized gaze: (645.6666666666666, 472.66666666666663), Distance: 88.5640552283786
+2025-08-08 19:10:07,424 - DEBUG - Raw left: (np.int32(831), np.int32(703)), Raw right: (np.int32(1073), np.int32(713))
+2025-08-08 19:10:07,424 - DEBUG - Normalized gaze: (645.3333333333333, 472.0), Distance: 85.431546437115
+2025-08-08 19:10:07,590 - DEBUG - Raw left: (np.int32(831), np.int32(705)), Raw right: (np.int32(1073), np.int32(713))
+2025-08-08 19:10:07,591 - DEBUG - Normalized gaze: (645.3333333333333, 472.66666666666663), Distance: 83.63209304318583
+2025-08-08 19:10:07,758 - DEBUG - Raw left: (np.int32(832), np.int32(704)), Raw right: (np.int32(1074), np.int32(711))
+2025-08-08 19:10:07,758 - DEBUG - Normalized gaze: (644.6666666666667, 471.66666666666663), Distance: 80.36804192151068
+2025-08-08 19:10:07,925 - DEBUG - Raw left: (np.int32(830), np.int32(706)), Raw right: (np.int32(1073), np.int32(713))
+2025-08-08 19:10:07,925 - DEBUG - Normalized gaze: (645.6666666666666, 473.0), Distance: 79.13121556410456
+2025-08-08 19:10:07,925 - DEBUG - New velocity: [np.float64(-221.44598800769182), np.float64(-169.99537428379912)]
+2025-08-08 19:10:08,089 - DEBUG - Raw left: (np.int32(831), np.int32(705)), Raw right: (np.int32(1074), np.int32(712))
+2025-08-08 19:10:08,089 - DEBUG - Normalized gaze: (645.0, 472.33333333333337), Distance: 80.61554194745327
+2025-08-08 19:10:08,089 - DEBUG - Logged data: [2.1539340019226074, np.float64(80.61554194745327), 8]
+2025-08-08 19:10:08,258 - DEBUG - Raw left: (np.int32(828), np.int32(708)), Raw right: (np.int32(1074), np.int32(713))
+2025-08-08 19:10:08,258 - DEBUG - Normalized gaze: (646.0, 473.66666666666663), Distance: 84.01789694467791
+2025-08-08 19:10:08,424 - DEBUG - Raw left: (np.int32(831), np.int32(708)), Raw right: (np.int32(1074), np.int32(713))
+2025-08-08 19:10:08,424 - DEBUG - Normalized gaze: (645.0, 473.66666666666663), Distance: 86.50169770225102
+2025-08-08 19:10:08,587 - DEBUG - Raw left: (np.int32(829), np.int32(707)), Raw right: (np.int32(1072), np.int32(714))
+2025-08-08 19:10:08,587 - DEBUG - Normalized gaze: (646.3333333333333, 473.66666666666663), Distance: 89.00473120450255
+2025-08-08 19:10:08,755 - DEBUG - Raw left: (np.int32(832), np.int32(707)), Raw right: (np.int32(1073), np.int32(714))
+2025-08-08 19:10:08,755 - DEBUG - Normalized gaze: (645.0, 473.66666666666663), Distance: 91.71726555220717
+2025-08-08 19:10:08,921 - DEBUG - Raw left: (np.int32(831), np.int32(705)), Raw right: (np.int32(1073), np.int32(714))
+2025-08-08 19:10:08,921 - DEBUG - Normalized gaze: (645.3333333333333, 473.0), Distance: 93.88405632604734
+2025-08-08 19:10:09,088 - DEBUG - Raw left: (np.int32(829), np.int32(707)), Raw right: (np.int32(1074), np.int32(714))
+2025-08-08 19:10:09,088 - DEBUG - Normalized gaze: (645.6666666666666, 473.66666666666663), Distance: 97.53029955041447
+2025-08-08 19:10:09,255 - DEBUG - Raw left: (np.int32(829), np.int32(709)), Raw right: (np.int32(1075), np.int32(713))
+2025-08-08 19:10:09,255 - DEBUG - Normalized gaze: (645.3333333333333, 474.0), Distance: 100.89616171406715
+2025-08-08 19:10:09,255 - DEBUG - Logged data: [3.316796064376831, np.float64(100.89616171406715), 13]
+2025-08-08 19:10:09,421 - DEBUG - Raw left: (np.int32(830), np.int32(709)), Raw right: (np.int32(1076), np.int32(713))
+2025-08-08 19:10:09,421 - DEBUG - Normalized gaze: (644.6666666666667, 474.0), Distance: 103.96419944616038
+2025-08-08 19:10:09,589 - DEBUG - Raw left: (np.int32(830), np.int32(708)), Raw right: (np.int32(1088), np.int32(712))
+2025-08-08 19:10:09,589 - DEBUG - Normalized gaze: (640.6666666666666, 473.33333333333337), Distance: 105.93518276599085
+2025-08-08 19:10:09,754 - DEBUG - Raw left: (np.int32(830), np.int32(708)), Raw right: (np.int32(1076), np.int32(713))
+2025-08-08 19:10:09,754 - DEBUG - Normalized gaze: (644.6666666666667, 473.66666666666663), Distance: 110.19836837913897
+2025-08-08 19:10:09,922 - DEBUG - Raw left: (np.int32(841), np.int32(708)), Raw right: (np.int32(1077), np.int32(712))
+2025-08-08 19:10:09,922 - DEBUG - Normalized gaze: (640.6666666666666, 473.33333333333337), Distance: 112.45170414598702
+2025-08-08 19:10:10,088 - DEBUG - Raw left: (np.int32(831), np.int32(706)), Raw right: (np.int32(1079), np.int32(712))
+2025-08-08 19:10:10,088 - DEBUG - Normalized gaze: (643.3333333333335, 472.66666666666663), Distance: 115.78383511833852
+2025-08-08 19:10:10,088 - DEBUG - New velocity: [np.float64(-66.77841980130069), np.float64(159.0072323361256)]
+2025-08-08 19:10:10,256 - DEBUG - Raw left: (np.int32(830), np.int32(707)), Raw right: (np.int32(1076), np.int32(713))
+2025-08-08 19:10:10,256 - DEBUG - Normalized gaze: (644.6666666666667, 473.33333333333337), Distance: 114.56402317053264
+2025-08-08 19:10:10,256 - DEBUG - Logged data: [4.317361116409302, np.float64(114.56402317053264), 13]
+2025-08-08 19:10:10,421 - DEBUG - Raw left: (np.int32(830), np.int32(708)), Raw right: (np.int32(1076), np.int32(713))
+2025-08-08 19:10:10,421 - DEBUG - Normalized gaze: (644.6666666666667, 473.66666666666663), Distance: 112.72007332410986
+2025-08-08 19:10:10,590 - DEBUG - Raw left: (np.int32(830), np.int32(706)), Raw right: (np.int32(1077), np.int32(713))
+2025-08-08 19:10:10,590 - DEBUG - Normalized gaze: (644.3333333333334, 473.0), Distance: 109.84617993880683
+2025-08-08 19:10:10,756 - DEBUG - Raw left: (np.int32(831), np.int32(706)), Raw right: (np.int32(1077), np.int32(713))
+2025-08-08 19:10:10,756 - DEBUG - Normalized gaze: (644.0, 473.0), Distance: 107.63199389886572
+2025-08-08 19:10:10,922 - DEBUG - Raw left: (np.int32(831), np.int32(709)), Raw right: (np.int32(1088), np.int32(713))
+2025-08-08 19:10:10,922 - DEBUG - Normalized gaze: (640.3333333333333, 474.0), Distance: 105.39598337627994
+2025-08-08 19:10:11,089 - DEBUG - Raw left: (np.int32(841), np.int32(709)), Raw right: (np.int32(1077), np.int32(714))
+2025-08-08 19:10:11,089 - DEBUG - Normalized gaze: (640.6666666666666, 474.33333333333337), Distance: 103.69110599410166
+2025-08-08 19:10:11,257 - DEBUG - Raw left: (np.int32(832), np.int32(706)), Raw right: (np.int32(1078), np.int32(713))
+2025-08-08 19:10:11,257 - DEBUG - Normalized gaze: (643.3333333333335, 473.0), Distance: 101.22940058735287
+2025-08-08 19:10:11,257 - DEBUG - Logged data: [5.3179931640625, np.float64(101.22940058735287), 15]
+2025-08-08 19:10:11,422 - DEBUG - Raw left: (np.int32(830), np.int32(709)), Raw right: (np.int32(1079), np.int32(715))
+2025-08-08 19:10:11,422 - DEBUG - Normalized gaze: (643.6666666666667, 474.66666666666663), Distance: 100.90319234932497
+2025-08-08 19:10:11,589 - DEBUG - Raw left: (np.int32(831), np.int32(710)), Raw right: (np.int32(1078), np.int32(715))
+2025-08-08 19:10:11,589 - DEBUG - Normalized gaze: (643.6666666666667, 475.0), Distance: 99.24236275923047
+2025-08-08 19:10:11,756 - DEBUG - Raw left: (np.int32(829), np.int32(709)), Raw right: (np.int32(1078), np.int32(716))
+2025-08-08 19:10:11,756 - DEBUG - Normalized gaze: (644.3333333333334, 475.0), Distance: 97.57457456139772
+2025-08-08 19:10:11,924 - DEBUG - Raw left: (np.int32(830), np.int32(708)), Raw right: (np.int32(1079), np.int32(716))
+2025-08-08 19:10:11,924 - DEBUG - Normalized gaze: (643.6666666666667, 474.66666666666663), Distance: 95.11272550008218
+2025-08-08 19:10:12,089 - DEBUG - Raw left: (np.int32(832), np.int32(708)), Raw right: (np.int32(1080), np.int32(716))
+2025-08-08 19:10:12,089 - DEBUG - Normalized gaze: (642.6666666666666, 474.66666666666663), Distance: 92.83456334325875
+2025-08-08 19:10:12,089 - DEBUG - New velocity: [np.float64(-289.7637697015123), np.float64(-43.58120736178543)]
+2025-08-08 19:10:12,257 - DEBUG - Raw left: (np.int32(829), np.int32(709)), Raw right: (np.int32(1080), np.int32(716))
+2025-08-08 19:10:12,257 - DEBUG - Normalized gaze: (643.6666666666667, 475.0), Distance: 96.2860817270633
+2025-08-08 19:10:12,257 - DEBUG - Logged data: [6.318166017532349, np.float64(96.2860817270633), 20]
+2025-08-08 19:10:12,423 - DEBUG - Raw left: (np.int32(830), np.int32(707)), Raw right: (np.int32(1081), np.int32(715))
+2025-08-08 19:10:12,423 - DEBUG - Normalized gaze: (643.0, 474.0), Distance: 97.95359131299402
+2025-08-08 19:10:12,591 - DEBUG - Raw left: (np.int32(830), np.int32(711)), Raw right: (np.int32(1081), np.int32(717))
+2025-08-08 19:10:12,591 - DEBUG - Normalized gaze: (643.0, 476.0), Distance: 102.6504687685148
+2025-08-08 19:10:12,757 - DEBUG - Raw left: (np.int32(830), np.int32(709)), Raw right: (np.int32(1081), np.int32(716))
+2025-08-08 19:10:12,757 - DEBUG - Normalized gaze: (643.0, 475.0), Distance: 104.90697786415372
+2025-08-08 19:10:12,923 - DEBUG - Raw left: (np.int32(829), np.int32(708)), Raw right: (np.int32(1080), np.int32(715))
+2025-08-08 19:10:12,923 - DEBUG - Normalized gaze: (643.6666666666667, 474.33333333333337), Distance: 107.97968262517158
+2025-08-08 19:10:13,090 - DEBUG - Raw left: (np.int32(831), np.int32(707)), Raw right: (np.int32(1080), np.int32(716))
+2025-08-08 19:10:13,090 - DEBUG - Normalized gaze: (643.0, 474.33333333333337), Distance: 110.92358409461455
+2025-08-08 19:10:13,257 - DEBUG - Raw left: (np.int32(831), np.int32(707)), Raw right: (np.int32(1081), np.int32(715))
+2025-08-08 19:10:13,257 - DEBUG - Normalized gaze: (642.6666666666666, 474.0), Distance: 113.88603776926924
+2025-08-08 19:10:13,257 - DEBUG - Logged data: [7.319288015365601, np.float64(113.88603776926924), 24]
+2025-08-08 19:10:13,424 - DEBUG - Raw left: (np.int32(831), np.int32(708)), Raw right: (np.int32(1082), np.int32(716))
+2025-08-08 19:10:13,424 - DEBUG - Normalized gaze: (642.3333333333334, 474.66666666666663), Distance: 117.69178595350039
+2025-08-08 19:10:13,592 - DEBUG - Raw left: (np.int32(828), np.int32(707)), Raw right: (np.int32(1094), np.int32(714))
+2025-08-08 19:10:13,592 - DEBUG - Normalized gaze: (639.3333333333334, 473.66666666666663), Distance: 118.53247281414384
+2025-08-08 19:10:13,757 - DEBUG - Raw left: (np.int32(843), np.int32(710)), Raw right: (np.int32(1082), np.int32(715))
+2025-08-08 19:10:13,757 - DEBUG - Normalized gaze: (638.3333333333333, 475.0), Distance: 122.46288910618263
+2025-08-08 19:10:13,924 - DEBUG - Raw left: (np.int32(827), np.int32(710)), Raw right: (np.int32(1081), np.int32(716))
+2025-08-08 19:10:13,924 - DEBUG - Normalized gaze: (644.0, 475.33333333333337), Distance: 130.28972009095943
+2025-08-08 19:10:14,090 - DEBUG - Raw left: (np.int32(830), np.int32(709)), Raw right: (np.int32(1082), np.int32(717))
+2025-08-08 19:10:14,090 - DEBUG - Normalized gaze: (642.6666666666666, 475.33333333333337), Distance: 133.1280490955013
+2025-08-08 19:10:14,090 - DEBUG - New velocity: [np.float64(-167.4245993965924), np.float64(-154.62411349761473)]
+2025-08-08 19:10:14,258 - DEBUG - Raw left: (np.int32(829), np.int32(709)), Raw right: (np.int32(1082), np.int32(716))
+2025-08-08 19:10:14,258 - DEBUG - Normalized gaze: (643.0, 475.0), Distance: 136.78006965279113
+2025-08-08 19:10:14,425 - DEBUG - Raw left: (np.int32(831), np.int32(707)), Raw right: (np.int32(1081), np.int32(716))
+2025-08-08 19:10:14,425 - DEBUG - Normalized gaze: (642.6666666666666, 474.33333333333337), Distance: 139.72277005400275
+2025-08-08 19:10:14,425 - DEBUG - Logged data: [8.487006187438965, np.float64(139.72277005400275), 31]
+2025-08-08 19:10:14,592 - DEBUG - Raw left: (np.int32(831), np.int32(709)), Raw right: (np.int32(1080), np.int32(717))
+2025-08-08 19:10:14,592 - DEBUG - Normalized gaze: (643.0, 475.33333333333337), Distance: 144.30279179613225
+2025-08-08 19:10:14,758 - DEBUG - Raw left: (np.int32(829), np.int32(708)), Raw right: (np.int32(1082), np.int32(716))
+2025-08-08 19:10:14,758 - DEBUG - Normalized gaze: (643.0, 474.66666666666663), Distance: 147.48544663544916
+2025-08-08 19:10:14,920 - DEBUG - Raw left: (np.int32(830), np.int32(709)), Raw right: (np.int32(1081), np.int32(717))
+2025-08-08 19:10:14,921 - DEBUG - Normalized gaze: (643.0, 475.33333333333337), Distance: 151.5937096293916
+2025-08-08 19:10:15,088 - DEBUG - Raw left: (np.int32(829), np.int32(707)), Raw right: (np.int32(1093), np.int32(716))
+2025-08-08 19:10:15,088 - DEBUG - Normalized gaze: (639.3333333333334, 474.33333333333337), Distance: 151.91772173899201
+2025-08-08 19:10:15,254 - DEBUG - Raw left: (np.int32(831), np.int32(708)), Raw right: (np.int32(1084), np.int32(715))
+2025-08-08 19:10:15,254 - DEBUG - Normalized gaze: (641.6666666666665, 474.33333333333337), Distance: 157.2310295347591
+2025-08-08 19:10:15,421 - DEBUG - Raw left: (np.int32(829), np.int32(709)), Raw right: (np.int32(1083), np.int32(716))
+2025-08-08 19:10:15,421 - DEBUG - Normalized gaze: (642.6666666666666, 475.0), Distance: 162.05909444280815
+2025-08-08 19:10:15,551 - DEBUG - Raw left: (np.int32(829), np.int32(708)), Raw right: (np.int32(1083), np.int32(716))
+2025-08-08 19:10:15,551 - DEBUG - Normalized gaze: (642.6666666666666, 474.66666666666663), Distance: 165.47376357024473
+2025-08-08 19:10:15,551 - DEBUG - Logged data: [9.649476051330566, np.float64(165.47376357024473), 33]
+2025-08-08 19:10:15,684 - DEBUG - Raw left: (np.int32(829), np.int32(709)), Raw right: (np.int32(1091), np.int32(716))
+2025-08-08 19:10:15,684 - DEBUG - Normalized gaze: (640.0, 475.0), Distance: 167.438503785576
+2025-08-08 19:10:15,818 - DEBUG - Raw left: (np.int32(829), np.int32(708)), Raw right: (np.int32(1082), np.int32(716))
+2025-08-08 19:10:15,818 - DEBUG - Normalized gaze: (643.0, 474.66666666666663), Distance: 173.00620427189764
+2025-08-08 19:10:15,950 - DEBUG - Raw left: (np.int32(832), np.int32(710)), Raw right: (np.int32(1082), np.int32(716))
+2025-08-08 19:10:15,950 - DEBUG - Normalized gaze: (642.0, 475.33333333333337), Distance: 176.3932198130004
+2025-08-08 19:10:16,086 - DEBUG - Raw left: (np.int32(828), np.int32(709)), Raw right: (np.int32(1094), np.int32(716))
+2025-08-08 19:10:16,086 - DEBUG - Normalized gaze: (639.3333333333334, 475.0), Distance: 177.89714594328396
+2025-08-08 19:10:16,218 - DEBUG - Raw left: (np.int32(832), np.int32(707)), Raw right: (np.int32(1084), np.int32(716))
+2025-08-08 19:10:16,218 - DEBUG - Normalized gaze: (641.3333333333333, 474.33333333333337), Distance: 182.51013055782926
+2025-08-08 19:10:16,218 - DEBUG - New velocity: [np.float64(-122.42326885096632), np.float64(270.63846367909736)]
+2025-08-08 19:10:16,352 - DEBUG - Raw left: (np.int32(831), np.int32(710)), Raw right: (np.int32(1083), np.int32(717))
+2025-08-08 19:10:16,352 - DEBUG - Normalized gaze: (642.0, 475.66666666666663), Distance: 182.36543798464533
+2025-08-08 19:10:16,484 - DEBUG - Raw left: (np.int32(831), np.int32(709)), Raw right: (np.int32(1092), np.int32(716))
+2025-08-08 19:10:16,485 - DEBUG - Normalized gaze: (639.0, 475.0), Distance: 178.2374919513722
+2025-08-08 19:10:16,619 - DEBUG - Raw left: (np.int32(846), np.int32(708)), Raw right: (np.int32(1095), np.int32(717))
+2025-08-08 19:10:16,619 - DEBUG - Normalized gaze: (633.0, 475.0), Distance: 172.3402117841172
+2025-08-08 19:10:16,619 - DEBUG - Logged data: [10.713593006134033, np.float64(172.3402117841172), 33]
+2025-08-08 19:10:16,751 - DEBUG - Raw left: (np.int32(846), np.int32(709)), Raw right: (np.int32(1083), np.int32(716))
+2025-08-08 19:10:16,751 - DEBUG - Normalized gaze: (637.0, 475.0), Distance: 174.0772194641451
+2025-08-08 19:10:16,886 - DEBUG - Raw left: (np.int32(829), np.int32(709)), Raw right: (np.int32(1094), np.int32(715))
+2025-08-08 19:10:16,886 - DEBUG - Normalized gaze: (639.0, 474.66666666666663), Distance: 174.30770487768146
+2025-08-08 19:10:17,018 - DEBUG - Raw left: (np.int32(831), np.int32(709)), Raw right: (np.int32(1083), np.int32(719))
+2025-08-08 19:10:17,018 - DEBUG - Normalized gaze: (642.0, 476.0), Distance: 176.5312186773336
+2025-08-08 19:10:17,153 - DEBUG - Raw left: (np.int32(830), np.int32(711)), Raw right: (np.int32(1082), np.int32(719))
+2025-08-08 19:10:17,153 - DEBUG - Normalized gaze: (642.6666666666666, 476.6666666666667), Distance: 176.60539685152185
+2025-08-08 19:10:17,285 - DEBUG - Raw left: (np.int32(830), np.int32(712)), Raw right: (np.int32(1083), np.int32(719))
+2025-08-08 19:10:17,285 - DEBUG - Normalized gaze: (642.3333333333334, 477.0), Distance: 175.77214749130906
+2025-08-08 19:10:17,418 - DEBUG - Raw left: (np.int32(832), np.int32(711)), Raw right: (np.int32(1083), np.int32(719))
+2025-08-08 19:10:17,418 - DEBUG - Normalized gaze: (641.6666666666665, 476.6666666666667), Distance: 174.41139182432366
+2025-08-08 19:10:17,552 - DEBUG - Raw left: (np.int32(829), np.int32(711)), Raw right: (np.int32(1093), np.int32(718))
+2025-08-08 19:10:17,552 - DEBUG - Normalized gaze: (639.3333333333334, 476.33333333333337), Distance: 171.72678336459953
+2025-08-08 19:10:17,687 - DEBUG - Raw left: (np.int32(829), np.int32(711)), Raw right: (np.int32(1084), np.int32(718))
+2025-08-08 19:10:17,687 - DEBUG - Normalized gaze: (642.3333333333334, 476.33333333333337), Distance: 173.99044205740583
+2025-08-08 19:10:17,687 - DEBUG - Logged data: [11.781358003616333, np.float64(173.99044205740583), 39]
+2025-08-08 19:10:17,818 - DEBUG - Raw left: (np.int32(845), np.int32(712)), Raw right: (np.int32(1083), np.int32(719))
+2025-08-08 19:10:17,818 - DEBUG - Normalized gaze: (637.3333333333334, 477.0), Distance: 169.60340161053904
+2025-08-08 19:10:17,953 - DEBUG - Raw left: (np.int32(831), np.int32(711)), Raw right: (np.int32(1084), np.int32(719))
+2025-08-08 19:10:17,953 - DEBUG - Normalized gaze: (641.6666666666665, 476.6666666666667), Distance: 173.2199343704941
+2025-08-08 19:10:18,087 - DEBUG - Raw left: (np.int32(831), np.int32(711)), Raw right: (np.int32(1093), np.int32(720))
+2025-08-08 19:10:18,087 - DEBUG - Normalized gaze: (638.6666666666666, 477.0), Distance: 170.6281470761582
+2025-08-08 19:10:18,219 - DEBUG - Raw left: (np.int32(830), np.int32(712)), Raw right: (np.int32(1086), np.int32(717))
+2025-08-08 19:10:18,220 - DEBUG - Normalized gaze: (641.3333333333333, 476.33333333333337), Distance: 172.97172955028344
+2025-08-08 19:10:18,220 - DEBUG - New velocity: [np.float64(86.25761475659336), np.float64(-121.16226594090675)]
+2025-08-08 19:10:18,353 - DEBUG - Raw left: (np.int32(830), np.int32(711)), Raw right: (np.int32(1097), np.int32(716))
+2025-08-08 19:10:18,353 - DEBUG - Normalized gaze: (637.6666666666666, 475.66666666666663), Distance: 168.7746784924429
+2025-08-08 19:10:18,487 - DEBUG - Raw left: (np.int32(830), np.int32(712)), Raw right: (np.int32(1086), np.int32(718))
+2025-08-08 19:10:18,487 - DEBUG - Normalized gaze: (641.3333333333333, 476.6666666666667), Distance: 172.02555235412942
+2025-08-08 19:10:18,620 - DEBUG - Raw left: (np.int32(832), np.int32(710)), Raw right: (np.int32(1095), np.int32(719))
+2025-08-08 19:10:18,620 - DEBUG - Normalized gaze: (637.6666666666666, 476.33333333333337), Distance: 168.0572571650629
+2025-08-08 19:10:18,753 - DEBUG - Raw left: (np.int32(830), np.int32(712)), Raw right: (np.int32(1088), np.int32(719))
+2025-08-08 19:10:18,753 - DEBUG - Normalized gaze: (640.6666666666666, 477.0), Distance: 170.61776293901488
+2025-08-08 19:10:18,753 - DEBUG - Logged data: [12.848849058151245, np.float64(170.61776293901488), 44]
+2025-08-08 19:10:18,885 - DEBUG - Raw left: (np.int32(815), np.int32(715)), Raw right: (np.int32(1096), np.int32(720))
+2025-08-08 19:10:18,885 - DEBUG - Normalized gaze: (643.0, 478.3333333333333), Distance: 172.88303300951358
+2025-08-08 19:10:19,020 - DEBUG - Raw left: (np.int32(817), np.int32(715)), Raw right: (np.int32(1087), np.int32(720))
+2025-08-08 19:10:19,020 - DEBUG - Normalized gaze: (645.3333333333333, 478.3333333333333), Distance: 174.59096025141108
+2025-08-08 19:10:19,153 - DEBUG - Raw left: (np.int32(831), np.int32(711)), Raw right: (np.int32(1086), np.int32(720))
+2025-08-08 19:10:19,153 - DEBUG - Normalized gaze: (641.0, 477.0), Distance: 169.7636398360019
+2025-08-08 19:10:19,420 - DEBUG - Raw left: (np.int32(831), np.int32(713)), Raw right: (np.int32(1083), np.int32(720))
+2025-08-08 19:10:19,420 - DEBUG - Normalized gaze: (642.0, 477.6666666666667), Distance: 170.35354210784413
+2025-08-08 19:10:19,553 - DEBUG - Raw left: (np.int32(845), np.int32(714)), Raw right: (np.int32(1083), np.int32(721))
+2025-08-08 19:10:19,553 - DEBUG - Normalized gaze: (637.3333333333334, 478.3333333333333), Distance: 166.4042532537153
+2025-08-08 19:10:19,688 - DEBUG - Raw left: (np.int32(845), np.int32(714)), Raw right: (np.int32(1083), np.int32(717))
+2025-08-08 19:10:19,688 - DEBUG - Normalized gaze: (637.3333333333334, 477.0), Distance: 165.53187293434524
+2025-08-08 19:10:19,820 - DEBUG - Raw left: (np.int32(832), np.int32(711)), Raw right: (np.int32(1084), np.int32(717))
+2025-08-08 19:10:19,820 - DEBUG - Normalized gaze: (641.3333333333333, 476.0), Distance: 168.26033202117912
+2025-08-08 19:10:19,820 - DEBUG - Logged data: [13.916620016098022, np.float64(168.26033202117912), 48]
+2025-08-08 19:10:19,954 - DEBUG - Raw left: (np.int32(830), np.int32(712)), Raw right: (np.int32(1083), np.int32(721))
+2025-08-08 19:10:19,954 - DEBUG - Normalized gaze: (642.3333333333334, 477.6666666666667), Distance: 169.8215645372346
+2025-08-08 19:10:20,086 - DEBUG - Raw left: (np.int32(831), np.int32(713)), Raw right: (np.int32(1083), np.int32(720))
+2025-08-08 19:10:20,086 - DEBUG - Normalized gaze: (642.0, 477.6666666666667), Distance: 169.41861774713226
+2025-08-08 19:10:20,224 - DEBUG - Raw left: (np.int32(833), np.int32(711)), Raw right: (np.int32(1083), np.int32(718))
+2025-08-08 19:10:20,224 - DEBUG - Normalized gaze: (641.3333333333333, 476.33333333333337), Distance: 168.0379332037955
+2025-08-08 19:10:20,224 - DEBUG - New velocity: [np.float64(279.45533869142525), np.float64(25.4736133072912)]
+2025-08-08 19:10:20,520 - DEBUG - Raw left: (np.int32(829), np.int32(713)), Raw right: (np.int32(1094), np.int32(719))
+2025-08-08 19:10:20,520 - DEBUG - Normalized gaze: (639.0, 477.33333333333337), Distance: 158.864877871662
+2025-08-08 19:10:20,654 - DEBUG - Raw left: (np.int32(828), np.int32(712)), Raw right: (np.int32(1088), np.int32(716))
+2025-08-08 19:10:20,654 - DEBUG - Normalized gaze: (641.3333333333333, 476.0), Distance: 156.11259263431432
+2025-08-08 19:10:20,787 - DEBUG - Raw left: (np.int32(831), np.int32(710)), Raw right: (np.int32(1101), np.int32(716))
+2025-08-08 19:10:20,787 - DEBUG - Normalized gaze: (636.0, 475.33333333333337), Distance: 147.606680503563
+2025-08-08 19:10:20,921 - DEBUG - Raw left: (np.int32(831), np.int32(712)), Raw right: (np.int32(1095), np.int32(719))
+2025-08-08 19:10:20,921 - DEBUG - Normalized gaze: (638.0, 477.0), Distance: 146.43939691244984
+2025-08-08 19:10:20,921 - DEBUG - Logged data: [15.015855073928833, np.float64(146.43939691244984), 52]
+2025-08-08 19:10:21,056 - DEBUG - Raw left: (np.int32(833), np.int32(712)), Raw right: (np.int32(1085), np.int32(720))
+2025-08-08 19:10:21,057 - DEBUG - Normalized gaze: (640.6666666666666, 477.33333333333337), Distance: 144.98673572252153
+2025-08-08 19:10:21,190 - DEBUG - Raw left: (np.int32(834), np.int32(710)), Raw right: (np.int32(1092), np.int32(719))
+2025-08-08 19:10:21,190 - DEBUG - Normalized gaze: (638.0, 476.33333333333337), Distance: 138.59695960478257
+2025-08-08 19:10:21,322 - DEBUG - Raw left: (np.int32(832), np.int32(713)), Raw right: (np.int32(1086), np.int32(721))
+2025-08-08 19:10:21,322 - DEBUG - Normalized gaze: (640.6666666666666, 478.0), Distance: 138.05631674000213
+2025-08-08 19:10:21,455 - DEBUG - Raw left: (np.int32(831), np.int32(711)), Raw right: (np.int32(1096), np.int32(717))
+2025-08-08 19:10:21,455 - DEBUG - Normalized gaze: (637.6666666666666, 476.0), Distance: 130.89254148028868
+2025-08-08 19:10:21,591 - DEBUG - Raw left: (np.int32(831), np.int32(713)), Raw right: (np.int32(1084), np.int32(720))
+2025-08-08 19:10:21,591 - DEBUG - Normalized gaze: (641.6666666666665, 477.6666666666667), Distance: 131.4055851958829
+2025-08-08 19:10:21,725 - DEBUG - Raw left: (np.int32(832), np.int32(714)), Raw right: (np.int32(1085), np.int32(720))
+2025-08-08 19:10:21,725 - DEBUG - Normalized gaze: (641.0, 478.0), Distance: 127.65796404251739
+2025-08-08 19:10:21,895 - DEBUG - Raw left: (np.int32(831), np.int32(712)), Raw right: (np.int32(1083), np.int32(721))
+2025-08-08 19:10:21,895 - DEBUG - Normalized gaze: (642.0, 477.6666666666667), Distance: 124.68691988608579
+2025-08-08 19:10:22,062 - DEBUG - Raw left: (np.int32(829), np.int32(713)), Raw right: (np.int32(1083), np.int32(720))
+2025-08-08 19:10:22,062 - DEBUG - Normalized gaze: (642.6666666666666, 477.6666666666667), Distance: 121.76083644470867
+2025-08-08 19:10:22,062 - DEBUG - Logged data: [16.12405300140381, np.float64(121.76083644470867), 56]
+2025-08-08 19:10:22,228 - DEBUG - Raw left: (np.int32(831), np.int32(712)), Raw right: (np.int32(1082), np.int32(718))
+2025-08-08 19:10:22,228 - DEBUG - Normalized gaze: (642.3333333333334, 476.6666666666667), Distance: 117.4736635960161
+2025-08-08 19:10:22,228 - DEBUG - New velocity: [np.float64(175.29116220988945), np.float64(3.6834266828696873)]
+2025-08-08 19:10:22,396 - DEBUG - Raw left: (np.int32(831), np.int32(713)), Raw right: (np.int32(1081), np.int32(721))
+2025-08-08 19:10:22,396 - DEBUG - Normalized gaze: (642.6666666666666, 478.0), Distance: 116.80035037870238
+2025-08-08 19:10:22,561 - DEBUG - Raw left: (np.int32(832), np.int32(713)), Raw right: (np.int32(1081), np.int32(719))
+2025-08-08 19:10:22,561 - DEBUG - Normalized gaze: (642.3333333333334, 477.33333333333337), Distance: 114.22219460948965
+2025-08-08 19:10:22,730 - DEBUG - Raw left: (np.int32(830), np.int32(715)), Raw right: (np.int32(1082), np.int32(721))
+2025-08-08 19:10:22,730 - DEBUG - Normalized gaze: (642.6666666666666, 478.6666666666667), Distance: 113.65779171735198
+2025-08-08 19:10:22,893 - DEBUG - Raw left: (np.int32(829), np.int32(715)), Raw right: (np.int32(1081), np.int32(722))
+2025-08-08 19:10:22,893 - DEBUG - Normalized gaze: (643.3333333333335, 479.0), Distance: 112.56305983571957
+2025-08-08 19:10:23,063 - DEBUG - Raw left: (np.int32(832), np.int32(714)), Raw right: (np.int32(1081), np.int32(722))
+2025-08-08 19:10:23,063 - DEBUG - Normalized gaze: (642.3333333333334, 478.6666666666667), Distance: 109.97760320800708
+2025-08-08 19:10:23,228 - DEBUG - Raw left: (np.int32(828), np.int32(712)), Raw right: (np.int32(1090), np.int32(717))
+2025-08-08 19:10:23,229 - DEBUG - Normalized gaze: (640.6666666666666, 476.33333333333337), Distance: 105.44074420817049
+2025-08-08 19:10:23,229 - DEBUG - Logged data: [17.2922420501709, np.float64(105.44074420817049), 63]
+2025-08-08 19:10:23,396 - DEBUG - Raw left: (np.int32(832), np.int32(713)), Raw right: (np.int32(1080), np.int32(720))
+2025-08-08 19:10:23,396 - DEBUG - Normalized gaze: (642.6666666666666, 477.6666666666667), Distance: 106.03930234315538
+2025-08-08 19:10:23,564 - DEBUG - Raw left: (np.int32(831), np.int32(714)), Raw right: (np.int32(1079), np.int32(722))
+2025-08-08 19:10:23,564 - DEBUG - Normalized gaze: (643.3333333333335, 478.6666666666667), Distance: 105.65063901039174
+2025-08-08 19:10:23,729 - DEBUG - Raw left: (np.int32(831), np.int32(714)), Raw right: (np.int32(1079), np.int32(720))
+2025-08-08 19:10:23,729 - DEBUG - Normalized gaze: (643.3333333333335, 478.0), Distance: 103.54317069920813
+2025-08-08 19:10:23,896 - DEBUG - Raw left: (np.int32(829), np.int32(715)), Raw right: (np.int32(1078), np.int32(722))
+2025-08-08 19:10:23,896 - DEBUG - Normalized gaze: (644.3333333333334, 479.0), Distance: 103.41823248406752
+2025-08-08 19:10:24,062 - DEBUG - Raw left: (np.int32(830), np.int32(715)), Raw right: (np.int32(1079), np.int32(721))
+2025-08-08 19:10:24,062 - DEBUG - Normalized gaze: (643.6666666666667, 478.6666666666667), Distance: 101.35700858534604
+2025-08-08 19:10:24,230 - DEBUG - Raw left: (np.int32(832), np.int32(715)), Raw right: (np.int32(1079), np.int32(722))
+2025-08-08 19:10:24,230 - DEBUG - Normalized gaze: (643.0, 479.0), Distance: 99.96887601467415
+2025-08-08 19:10:24,230 - DEBUG - New velocity: [np.float64(-208.08188530035767), np.float64(-3.782871170038042)]
+2025-08-08 19:10:24,398 - DEBUG - Raw left: (np.int32(832), np.int32(713)), Raw right: (np.int32(1081), np.int32(722))
+2025-08-08 19:10:24,398 - DEBUG - Normalized gaze: (642.3333333333334, 478.3333333333333), Distance: 100.67706746445042
+2025-08-08 19:10:24,398 - DEBUG - Logged data: [18.459221839904785, np.float64(100.67706746445042), 70]
+2025-08-08 19:10:24,563 - DEBUG - Raw left: (np.int32(830), np.int32(712)), Raw right: (np.int32(1091), np.int32(716))
+2025-08-08 19:10:24,563 - DEBUG - Normalized gaze: (639.6666666666667, 476.0), Distance: 99.01307756627396
+2025-08-08 19:10:24,730 - DEBUG - Raw left: (np.int32(828), np.int32(711)), Raw right: (np.int32(1091), np.int32(718))
+2025-08-08 19:10:24,730 - DEBUG - Normalized gaze: (640.3333333333333, 476.33333333333337), Distance: 101.38091176420991
+2025-08-08 19:10:24,897 - DEBUG - Raw left: (np.int32(829), np.int32(710)), Raw right: (np.int32(1091), np.int32(719))
+2025-08-08 19:10:24,897 - DEBUG - Normalized gaze: (640.0, 476.33333333333337), Distance: 103.02569391961916
+2025-08-08 19:10:25,062 - DEBUG - Raw left: (np.int32(831), np.int32(715)), Raw right: (np.int32(1082), np.int32(722))
+2025-08-08 19:10:25,062 - DEBUG - Normalized gaze: (642.3333333333334, 479.0), Distance: 108.43704506238339
+2025-08-08 19:10:25,229 - DEBUG - Raw left: (np.int32(829), np.int32(711)), Raw right: (np.int32(1094), np.int32(717))
+2025-08-08 19:10:25,229 - DEBUG - Normalized gaze: (639.0, 476.0), Distance: 106.02723656206354
+2025-08-08 19:10:25,397 - DEBUG - Raw left: (np.int32(828), np.int32(715)), Raw right: (np.int32(1082), np.int32(722))
+2025-08-08 19:10:25,397 - DEBUG - Normalized gaze: (643.3333333333335, 479.0), Distance: 113.0540696706061
+2025-08-08 19:10:25,562 - DEBUG - Raw left: (np.int32(829), np.int32(717)), Raw right: (np.int32(1080), np.int32(723))
+2025-08-08 19:10:25,562 - DEBUG - Normalized gaze: (643.6666666666667, 480.0), Distance: 116.15586419200046
+2025-08-08 19:10:25,562 - DEBUG - Logged data: [19.626376152038574, np.float64(116.15586419200046), 76]
+2025-08-08 19:10:25,730 - DEBUG - Raw left: (np.int32(831), np.int32(716)), Raw right: (np.int32(1081), np.int32(723))
+2025-08-08 19:10:25,730 - DEBUG - Normalized gaze: (642.6666666666666, 479.6666666666667), Distance: 117.4208959499704
+2025-08-08 19:10:25,897 - DEBUG - Raw left: (np.int32(831), np.int32(716)), Raw right: (np.int32(1081), np.int32(722))
+2025-08-08 19:10:25,897 - DEBUG - Normalized gaze: (642.6666666666666, 479.3333333333333), Distance: 119.374001060558
+2025-08-08 19:10:26,062 - DEBUG - Raw left: (np.int32(831), np.int32(715)), Raw right: (np.int32(1082), np.int32(722))
+2025-08-08 19:10:26,063 - DEBUG - Normalized gaze: (642.3333333333334, 479.0), Distance: 121.16316322336469
+2025-08-08 19:10:26,231 - DEBUG - Raw left: (np.int32(829), np.int32(717)), Raw right: (np.int32(1084), np.int32(723))
+2025-08-08 19:10:26,231 - DEBUG - Normalized gaze: (642.3333333333334, 480.0), Distance: 124.19964873629112
+2025-08-08 19:10:26,231 - DEBUG - New velocity: [np.float64(65.60174222107129), np.float64(-229.759500417847)]
+2025-08-08 19:10:26,397 - DEBUG - Raw left: (np.int32(832), np.int32(715)), Raw right: (np.int32(1082), np.int32(723))
+2025-08-08 19:10:26,397 - DEBUG - Normalized gaze: (642.0, 479.3333333333333), Distance: 125.4907714760773
+2025-08-08 19:10:26,560 - DEBUG - Raw left: (np.int32(830), np.int32(716)), Raw right: (np.int32(1082), np.int32(724))
+2025-08-08 19:10:26,560 - DEBUG - Normalized gaze: (642.6666666666666, 480.0), Distance: 128.51895483015238
+2025-08-08 19:10:26,732 - DEBUG - Raw left: (np.int32(832), np.int32(716)), Raw right: (np.int32(1082), np.int32(723))
+2025-08-08 19:10:26,732 - DEBUG - Normalized gaze: (642.0, 479.6666666666667), Distance: 130.00691512114344
+2025-08-08 19:10:26,732 - DEBUG - Logged data: [20.789068937301636, np.float64(130.00691512114344), 83]
+2025-08-08 19:10:26,898 - DEBUG - Raw left: (np.int32(832), np.int32(714)), Raw right: (np.int32(1082), np.int32(718))
+2025-08-08 19:10:26,898 - DEBUG - Normalized gaze: (642.0, 477.33333333333337), Distance: 130.4082115416359
+2025-08-08 19:10:27,064 - DEBUG - Raw left: (np.int32(834), np.int32(713)), Raw right: (np.int32(1083), np.int32(722))
+2025-08-08 19:10:27,064 - DEBUG - Normalized gaze: (641.0, 478.3333333333333), Distance: 132.9068650112739
+2025-08-08 19:10:27,232 - DEBUG - Raw left: (np.int32(832), np.int32(713)), Raw right: (np.int32(1083), np.int32(721))
+2025-08-08 19:10:27,232 - DEBUG - Normalized gaze: (641.6666666666665, 478.0), Distance: 135.40267946474935
+2025-08-08 19:10:27,397 - DEBUG - Raw left: (np.int32(831), np.int32(715)), Raw right: (np.int32(1091), np.int32(722))
+2025-08-08 19:10:27,397 - DEBUG - Normalized gaze: (639.3333333333334, 479.0), Distance: 137.3913999861401
+2025-08-08 19:10:27,565 - DEBUG - Raw left: (np.int32(833), np.int32(716)), Raw right: (np.int32(1085), np.int32(721))
+2025-08-08 19:10:27,565 - DEBUG - Normalized gaze: (640.6666666666666, 479.0), Distance: 140.6452683029663
+2025-08-08 19:10:27,732 - DEBUG - Raw left: (np.int32(833), np.int32(713)), Raw right: (np.int32(1085), np.int32(721))
+2025-08-08 19:10:27,732 - DEBUG - Normalized gaze: (640.6666666666666, 478.0), Distance: 142.37281768122756
+2025-08-08 19:10:27,732 - DEBUG - Logged data: [21.794275999069214, np.float64(142.37281768122756), 88]
+2025-08-08 19:10:27,898 - DEBUG - Raw left: (np.int32(833), np.int32(714)), Raw right: (np.int32(1086), np.int32(720))
+2025-08-08 19:10:27,898 - DEBUG - Normalized gaze: (640.3333333333333, 478.0), Distance: 144.8347464700288
+2025-08-08 19:10:28,064 - DEBUG - Raw left: (np.int32(835), np.int32(711)), Raw right: (np.int32(1094), np.int32(720))
+2025-08-08 19:10:28,064 - DEBUG - Normalized gaze: (637.0, 477.0), Distance: 145.0553085981621
+2025-08-08 19:10:28,232 - DEBUG - Raw left: (np.int32(835), np.int32(711)), Raw right: (np.int32(1100), np.int32(715))
+2025-08-08 19:10:28,232 - DEBUG - Normalized gaze: (635.0, 475.33333333333337), Distance: 145.44761787795989
+2025-08-08 19:10:28,232 - DEBUG - New velocity: [np.float64(-85.08591964973375), np.float64(-159.68956507335733)]
+2025-08-08 19:10:28,398 - DEBUG - Raw left: (np.int32(834), np.int32(710)), Raw right: (np.int32(1084), np.int32(714))
+2025-08-08 19:10:28,398 - DEBUG - Normalized gaze: (640.6666666666666, 474.66666666666663), Distance: 150.3721492260514
+2025-08-08 19:10:28,563 - DEBUG - Raw left: (np.int32(835), np.int32(712)), Raw right: (np.int32(1085), np.int32(720))
+2025-08-08 19:10:28,563 - DEBUG - Normalized gaze: (640.0, 477.33333333333337), Distance: 155.3015348961746
+2025-08-08 19:10:28,733 - DEBUG - Raw left: (np.int32(833), np.int32(714)), Raw right: (np.int32(1084), np.int32(720))
+2025-08-08 19:10:28,733 - DEBUG - Normalized gaze: (641.0, 478.0), Distance: 159.25456985940218
+2025-08-08 19:10:28,898 - DEBUG - Raw left: (np.int32(833), np.int32(713)), Raw right: (np.int32(1093), np.int32(722))
+2025-08-08 19:10:28,898 - DEBUG - Normalized gaze: (638.0, 478.3333333333333), Distance: 161.0556749567427
+2025-08-08 19:10:28,898 - DEBUG - Logged data: [22.962060928344727, np.float64(161.0556749567427), 94]
+2025-08-08 19:10:29,065 - DEBUG - Raw left: (np.int32(833), np.int32(713)), Raw right: (np.int32(1085), np.int32(721))
+2025-08-08 19:10:29,065 - DEBUG - Normalized gaze: (640.6666666666666, 478.0), Distance: 164.8880700721436
+2025-08-08 19:10:29,229 - DEBUG - Raw left: (np.int32(833), np.int32(715)), Raw right: (np.int32(1085), np.int32(722))
+2025-08-08 19:10:29,229 - DEBUG - Normalized gaze: (640.6666666666666, 479.0), Distance: 168.66687245483564
+2025-08-08 19:10:29,399 - DEBUG - Raw left: (np.int32(831), np.int32(713)), Raw right: (np.int32(1085), np.int32(721))
+2025-08-08 19:10:29,399 - DEBUG - Normalized gaze: (641.3333333333333, 478.0), Distance: 170.99210299884848
+2025-08-08 19:10:29,565 - DEBUG - Raw left: (np.int32(833), np.int32(714)), Raw right: (np.int32(1084), np.int32(722))
+2025-08-08 19:10:29,565 - DEBUG - Normalized gaze: (641.0, 478.6666666666667), Distance: 174.31845613200196
+2025-08-08 19:10:29,732 - DEBUG - Raw left: (np.int32(833), np.int32(713)), Raw right: (np.int32(1085), np.int32(722))
+2025-08-08 19:10:29,732 - DEBUG - Normalized gaze: (640.6666666666666, 478.3333333333333), Distance: 176.76283054292685
+2025-08-08 19:10:29,899 - DEBUG - Raw left: (np.int32(833), np.int32(715)), Raw right: (np.int32(1084), np.int32(722))
+2025-08-08 19:10:29,899 - DEBUG - Normalized gaze: (641.0, 479.0), Distance: 180.40305548530299
+2025-08-08 19:10:30,066 - DEBUG - Raw left: (np.int32(833), np.int32(715)), Raw right: (np.int32(1085), np.int32(721))
+2025-08-08 19:10:30,066 - DEBUG - Normalized gaze: (640.6666666666666, 478.6666666666667), Distance: 182.84753741214342
+2025-08-08 19:10:30,066 - DEBUG - Logged data: [24.12775707244873, np.float64(182.84753741214342), 101]
+2025-08-08 19:10:30,232 - DEBUG - Raw left: (np.int32(833), np.int32(713)), Raw right: (np.int32(1084), np.int32(722))
+2025-08-08 19:10:30,232 - DEBUG - Normalized gaze: (641.0, 478.3333333333333), Distance: 185.60451301228022
+2025-08-08 19:10:30,399 - DEBUG - Raw left: (np.int32(833), np.int32(713)), Raw right: (np.int32(1092), np.int32(715))
+2025-08-08 19:10:30,399 - DEBUG - Normalized gaze: (638.3333333333333, 476.0), Distance: 185.1909716354426
+2025-08-08 19:10:30,399 - DEBUG - New velocity: [np.float64(-47.7983790401111), np.float64(-216.85714869484622)]
+2025-08-08 19:10:30,566 - DEBUG - Raw left: (np.int32(834), np.int32(714)), Raw right: (np.int32(1083), np.int32(722))
+2025-08-08 19:10:30,566 - DEBUG - Normalized gaze: (641.0, 478.6666666666667), Distance: 192.21907938846167
+2025-08-08 19:10:30,731 - DEBUG - Raw left: (np.int32(843), np.int32(714)), Raw right: (np.int32(1084), np.int32(722))
+2025-08-08 19:10:30,731 - DEBUG - Normalized gaze: (637.6666666666666, 478.6666666666667), Distance: 194.13588015380404
+2025-08-08 19:10:30,900 - DEBUG - Raw left: (np.int32(833), np.int32(713)), Raw right: (np.int32(1085), np.int32(722))
+2025-08-08 19:10:30,900 - DEBUG - Normalized gaze: (640.6666666666666, 478.3333333333333), Distance: 198.63420789922463
+2025-08-08 19:10:31,065 - DEBUG - Raw left: (np.int32(832), np.int32(716)), Raw right: (np.int32(1084), np.int32(722))
+2025-08-08 19:10:31,065 - DEBUG - Normalized gaze: (641.3333333333333, 479.3333333333333), Distance: 203.26642300771368
+2025-08-08 19:10:31,065 - DEBUG - Logged data: [25.128832817077637, np.float64(203.26642300771368), 107]
+2025-08-08 19:10:31,233 - DEBUG - Raw left: (np.int32(833), np.int32(715)), Raw right: (np.int32(1085), np.int32(722))
+2025-08-08 19:10:31,233 - DEBUG - Normalized gaze: (640.6666666666666, 479.0), Distance: 206.11195791219538
+2025-08-08 19:10:31,399 - DEBUG - Raw left: (np.int32(833), np.int32(716)), Raw right: (np.int32(1086), np.int32(722))
+2025-08-08 19:10:31,399 - DEBUG - Normalized gaze: (640.3333333333333, 479.3333333333333), Distance: 209.71120384979278
+2025-08-08 19:10:31,566 - DEBUG - Raw left: (np.int32(836), np.int32(714)), Raw right: (np.int32(1086), np.int32(722))
+2025-08-08 19:10:31,566 - DEBUG - Normalized gaze: (639.3333333333334, 478.6666666666667), Distance: 212.12789412511611
+2025-08-08 19:10:31,734 - DEBUG - Raw left: (np.int32(834), np.int32(711)), Raw right: (np.int32(1095), np.int32(715))
+2025-08-08 19:10:31,734 - DEBUG - Normalized gaze: (637.0, 475.33333333333337), Distance: 211.57343744167358
+2025-08-08 19:10:32,069 - DEBUG - Raw left: (np.int32(835), np.int32(714)), Raw right: (np.int32(1086), np.int32(721))
+2025-08-08 19:10:32,069 - DEBUG - Normalized gaze: (639.6666666666667, 478.3333333333333), Distance: 222.35256830665372
+2025-08-08 19:10:32,069 - DEBUG - Logged data: [26.128868103027344, np.float64(222.35256830665372), 112]
+2025-08-08 19:10:32,233 - DEBUG - Raw left: (np.int32(838), np.int32(712)), Raw right: (np.int32(1086), np.int32(721))
+2025-08-08 19:10:32,233 - DEBUG - Normalized gaze: (638.6666666666666, 477.6666666666667), Distance: 224.7914448096639
+2025-08-08 19:10:32,400 - DEBUG - New velocity: [np.float64(-111.20804507811528), np.float64(109.8114775624897)]
+2025-08-08 19:10:32,566 - DEBUG - Raw left: (np.int32(847), np.int32(713)), Raw right: (np.int32(1086), np.int32(720))
+2025-08-08 19:10:32,566 - DEBUG - Normalized gaze: (635.6666666666666, 477.6666666666667), Distance: 226.15569956222762
+2025-08-08 19:10:32,734 - DEBUG - Raw left: (np.int32(834), np.int32(714)), Raw right: (np.int32(1090), np.int32(718))
+2025-08-08 19:10:32,734 - DEBUG - Normalized gaze: (638.6666666666666, 477.33333333333337), Distance: 226.3066595547353
+2025-08-08 19:10:33,068 - DEBUG - Raw left: (np.int32(834), np.int32(711)), Raw right: (np.int32(1085), np.int32(719))
+2025-08-08 19:10:33,068 - DEBUG - Normalized gaze: (640.3333333333333, 476.6666666666667), Distance: 224.92783195341596
+2025-08-08 19:10:33,233 - DEBUG - Raw left: (np.int32(833), np.int32(712)), Raw right: (np.int32(1093), np.int32(715))
+2025-08-08 19:10:33,233 - DEBUG - Normalized gaze: (638.0, 475.66666666666663), Distance: 222.22936852688716
+2025-08-08 19:10:33,233 - DEBUG - Logged data: [27.296611070632935, np.float64(222.22936852688716), 116]
+2025-08-08 19:10:33,402 - DEBUG - Raw left: (np.int32(835), np.int32(710)), Raw right: (np.int32(1094), np.int32(717))
+2025-08-08 19:10:33,402 - DEBUG - Normalized gaze: (637.0, 475.66666666666663), Distance: 221.04398485127598
+2025-08-08 19:10:33,566 - DEBUG - Raw left: (np.int32(834), np.int32(714)), Raw right: (np.int32(1094), np.int32(720))
+2025-08-08 19:10:33,566 - DEBUG - Normalized gaze: (637.3333333333334, 478.0), Distance: 222.55589654409067
+2025-08-08 19:10:33,735 - DEBUG - Raw left: (np.int32(832), np.int32(714)), Raw right: (np.int32(1092), np.int32(722))
+2025-08-08 19:10:33,735 - DEBUG - Normalized gaze: (638.6666666666666, 478.6666666666667), Distance: 223.11279769912463
+2025-08-08 19:10:33,899 - DEBUG - Raw left: (np.int32(835), np.int32(714)), Raw right: (np.int32(1090), np.int32(721))
+2025-08-08 19:10:33,899 - DEBUG - Normalized gaze: (638.3333333333333, 478.3333333333333), Distance: 222.01504178202214
+2025-08-08 19:10:34,067 - DEBUG - Raw left: (np.int32(833), np.int32(714)), Raw right: (np.int32(1091), np.int32(721))
+2025-08-08 19:10:34,067 - DEBUG - Normalized gaze: (638.6666666666666, 478.3333333333333), Distance: 221.56792464491747
+2025-08-08 19:10:34,234 - DEBUG - Raw left: (np.int32(834), np.int32(716)), Raw right: (np.int32(1087), np.int32(723))
+2025-08-08 19:10:34,234 - DEBUG - Normalized gaze: (639.6666666666667, 479.6666666666667), Distance: 222.63940836958426
+2025-08-08 19:10:34,401 - DEBUG - Raw left: (np.int32(833), np.int32(715)), Raw right: (np.int32(1093), np.int32(719))
+2025-08-08 19:10:34,401 - DEBUG - Normalized gaze: (638.0, 478.0), Distance: 219.78403861387454
+2025-08-08 19:10:34,401 - DEBUG - Logged data: [28.463154077529907, np.float64(219.78403861387454), 123]
+2025-08-08 19:10:34,401 - DEBUG - New velocity: [np.float64(-285.00124741680094), np.float64(-66.12138851092904)]
+2025-08-08 19:10:34,567 - DEBUG - Raw left: (np.int32(834), np.int32(716)), Raw right: (np.int32(1085), np.int32(725))
+2025-08-08 19:10:34,567 - DEBUG - Normalized gaze: (640.3333333333333, 480.3333333333333), Distance: 226.3419024637984
+2025-08-08 19:10:34,734 - DEBUG - Raw left: (np.int32(833), np.int32(715)), Raw right: (np.int32(1086), np.int32(723))
+2025-08-08 19:10:34,734 - DEBUG - Normalized gaze: (640.3333333333333, 479.3333333333333), Distance: 228.9004237909762
+2025-08-08 19:10:34,902 - DEBUG - Raw left: (np.int32(836), np.int32(718)), Raw right: (np.int32(1084), np.int32(726))
+2025-08-08 19:10:34,902 - DEBUG - Normalized gaze: (640.0, 481.3333333333333), Distance: 233.80208341978644
+2025-08-08 19:10:35,065 - DEBUG - Raw left: (np.int32(834), np.int32(715)), Raw right: (np.int32(1099), np.int32(719))
+2025-08-08 19:10:35,065 - DEBUG - Normalized gaze: (635.6666666666666, 478.0), Distance: 232.05517881081298
+2025-08-08 19:10:35,234 - DEBUG - Raw left: (np.int32(832), np.int32(714)), Raw right: (np.int32(1091), np.int32(722))
+2025-08-08 19:10:35,234 - DEBUG - Normalized gaze: (639.0, 478.6666666666667), Distance: 238.02826959656244
+2025-08-08 19:10:35,402 - DEBUG - Raw left: (np.int32(834), np.int32(714)), Raw right: (np.int32(1092), np.int32(723))
+2025-08-08 19:10:35,402 - DEBUG - Normalized gaze: (638.0, 479.0), Distance: 241.2553428841749
+2025-08-08 19:10:35,402 - DEBUG - Logged data: [29.463315963745117, np.float64(241.2553428841749), 129]
+2025-08-08 19:10:35,567 - DEBUG - Raw left: (np.int32(835), np.int32(714)), Raw right: (np.int32(1091), np.int32(721))
+2025-08-08 19:10:35,567 - DEBUG - Normalized gaze: (638.0, 478.3333333333333), Distance: 244.30606383843707
+2025-08-08 19:10:35,735 - DEBUG - Raw left: (np.int32(833), np.int32(715)), Raw right: (np.int32(1086), np.int32(724))
+2025-08-08 19:10:35,735 - DEBUG - Normalized gaze: (640.3333333333333, 479.6666666666667), Distance: 250.41802363863894
+2025-08-08 19:10:35,902 - DEBUG - Raw left: (np.int32(833), np.int32(714)), Raw right: (np.int32(1094), np.int32(724))
+2025-08-08 19:10:35,902 - DEBUG - Normalized gaze: (637.6666666666666, 479.3333333333333), Distance: 252.1608809018275
+2025-08-08 19:10:35,919 - DEBUG - Test complete
+2025-08-08 19:10:38,466 - DEBUG - Saving results
