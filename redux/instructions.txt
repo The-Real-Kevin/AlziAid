@@ -1,0 +1,3 @@
+
+1. on a new computer, run install.sh to install all the required files
+2. before each test for each patient, type in "bash run.sh" command to start the program
