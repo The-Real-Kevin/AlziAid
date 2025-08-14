@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# install_alziaid.sh
+# install.sh
 set -e
 
-echo "Starting AlziAid Eye Tracking Test Setup..."
+echo "Starting ALICE Eye Tracking Test Setup..."
 echo "This script installs required software."
 echo "If errors occur, please contact yuqisun@umich.edu or call +852 59816970 on whatsapp."
 
@@ -55,11 +55,11 @@ brew install ffmpeg || true
 
 # Set up virtual environment
 echo "Setting up virtual environment..."
-/opt/homebrew/opt/python@3.13/bin/python3 -m venv ~/AlziAid/alziaid_venv || {
+/opt/homebrew/opt/python@3.13/bin/python3 -m venv ~/ALICE/ALICE_venv || {
     echo "Error: Failed to create virtual environment."
     exit 1
 }
-source ~/AlziAid/alziaid_venv/bin/activate
+source ~/ALICE/ALICE_venv/bin/activate
 
 # Install dependencies
 echo "Installing Python dependencies..."
@@ -70,14 +70,16 @@ pip install opencv-python==4.12.0.88 numpy==2.2.6 dlib==20.0.0 || {
 
 # Copy project files
 echo "Setting up project files..."
-mkdir -p ~/AlziAid
-cp main.py ~/AlziAid/ || {
+mkdir -p ~/ALICE
+cp main.py ~/ALICE/ || {
     echo "Error: Failed to copy main.py."
     exit 1
 }
-cp -r gaze_tracking ~/AlziAid/ || {
+cp -r gaze_tracking ~/ALICE/ || {
     echo "Error: Failed to copy gaze_tracking."
     exit 1
 }
 
-echo "Setup complete. Run ./run_alziaid.sh to start the test."
+echo "Setup complete. Run ./run.sh to start the test."
+
+

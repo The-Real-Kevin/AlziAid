@@ -1,3 +1,90 @@
+Alzheimer's Eye Tracking data collection tool - Instructions for Nurses
 
-1. on a new computer, run install.sh to install all the required files
-2. before each test for each patient, type in "bash run.sh" command to start the program
+Thank you for using the Eye Tracking Tool to collect patient data. This test tracks eye movements to assess smooth pursuit and blinking patterns, saving results as a CSV file. Follow these steps to set up and run the test on a macOS computer (version 10.15 or later). The setup requires internet access and administrator permissions. If you encounter issues, contact [yuqisun@umich.edu] for assistance or a USB version.
+
+---
+
+### Step 1: Install Homebrew
+Homebrew is a tool to install required software. If Homebrew is not installed on your Mac:
+1. Open Terminal (search for "Terminal" in Spotlight, or find it in Applications > Utilities).
+2. Copy and paste the following command, then press Enter:
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+3. Follow the on-screen instructions, including entering your Mac password if prompted.
+4. After installation, Homebrew will provide commands to add it to your system. Run those commands (e.g., `eval "$(/opt/homebrew/bin/brew shellenv)"`).
+
+For a video guide, watch: https://www.youtube.com/watch?v=IWJKRmFLn-g
+
+If Homebrew is already installed, skip to Step 2.
+
+---
+
+### Step 2: Install Python 3.13
+The test requires Python 3.13. To install it:
+1. In Terminal, run:
+   brew install python@3.13
+   or download python 3.13.6 from this website 
+   https://www.python.org/downloads/release/python-3136/
+2. If you see an error about "symlink" or "already exists," run:
+   brew link --overwrite python@3.13
+3. Verify Python installation by running:
+   /opt/homebrew/opt/python@3.13/bin/python3 --version
+   You should see "Python 3.13.6" (or a similar 3.13 version).
+
+For a video guide, watch: https://www.youtube.com/watch?v=A-535i_euLI
+
+If Python 3.13 is already installed, skip to Step 3.
+
+---
+
+### Step 3: Set Up the data collection Test (Run Once)
+1. Unzip the tool.zip file to a folder (e.g., ~/Desktop/.
+   - Right-click tool.zip, select "Open With > Archive Utility" to unzip.
+2. Open Terminal and navigate to the folder:
+   cd ~/Desktop/tool
+3. Make the install script executable:
+   chmod +x install.sh
+4. Run the setup script:
+   bash install.sh
+5. This script installs all required software (Python dependencies, FFmpeg, etc.) and copies files to ~/tool. It may take a few minutes and requires internet access.
+
+If errors occur, check ~/tool/app_error.log and contact yuqsun@umich.edu
+
+---
+
+### Step 4: Run the Test for Each Patient
+Before collecting data from a new patient:
+1. Open Terminal and navigate to the data collection folder:
+   cd ~/Desktop/tool
+2. Make the run script executable (do this only once):
+   chmod +x run_data collection.sh
+3. Run the test:
+   bash run.sh
+4. Follow the on-screen instructions:
+   - Click "Calibrate" and follow the blue dots with your eyes.
+   - Track the red dot as it moves within the black border.
+   - After ~60 seconds, click "Next" to save the CSV file.
+   - Name the file clearly (e.g., "EyeTracking_PatientName_Date.csv").
+5. Upload the CSV to google drive
+   Or email to: yuqisun@umich.edu
+   Send within 24 hours for analysis.
+
+Repeat this step for each new patient.
+
+---
+
+### Requirements
+- macOS 10.15 or later
+- Webcam (built-in or external)
+- Internet connection (for setup only)
+- Administrator permissions for Homebrew and Python installation
+
+---
+
+### Troubleshooting
+- If the webcam doesn’t work, ensure it’s connected and permissions are granted (System Settings > Privacy & Security > Camera).
+- If setup fails, check ~/tool/app_error.log for details.
+- For restricted computers (no internet or permissions), contact yuqisun@umich.edu for a USB version.
+- For other issues, contact yuqisun@umich.edu.
+
+Thank you for helping with this important research!
+
