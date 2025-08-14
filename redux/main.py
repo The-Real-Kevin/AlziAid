@@ -10,7 +10,7 @@ import logging
 
 class SmoothPursuitTest:
     def __init__(self, root):
-        # Configure logging with FileHandler to overwrite app_error.log
+        # Configure logging
         logger = logging.getLogger()
         logger.setLevel(logging.DEBUG)
         handler = logging.FileHandler('app_error.log', mode='w')
@@ -19,7 +19,7 @@ class SmoothPursuitTest:
         logging.debug("Initializing SmoothPursuitTest")
         self.root = root
         self.root.title("Alzheimer's Eye Tracking Test")
-        # Fixed canvas size (720p) with 50px margins
+        # Canvas size (720p) with 50px margins
         self.canvas_width = 1280
         self.canvas_height = 720
         self.margin = 50
@@ -27,6 +27,12 @@ class SmoothPursuitTest:
         self.active_height = self.canvas_height - 2 * self.margin - 50  # Space for button
         self.canvas = tk.Canvas(root, width=self.canvas_width, height=self.canvas_height, bg="white")
         self.canvas.pack(pady=10)
+        # Draw black border
+        self.canvas.create_rectangle(
+            self.margin, self.margin,
+            self.canvas_width - self.margin, self.canvas_height - self.margin - 50,
+            outline="black", width=2
+        )
         self.gaze = GazeTracking()
         self.webcam = cv2.VideoCapture(0)
         logging.debug(f"Webcam initialized: {self.webcam.isOpened()}")
@@ -38,17 +44,18 @@ class SmoothPursuitTest:
         self.blink_count = 0
         self.dot = None
         self.next_button = None
-        self.dot_radius = 10
-	#self.dot_radius = max(10, self.canvas_width * 0.01)
-        self.move_duration = 10.0  # Time to move in one direction before changing
-        self.move_start_time = 0
+        self.dot_radius = max(10, int(self.canvas_width * 0.01))
         self.last_log_time = 0
+        self.calibrated = False  # Track calibration state
         self.calibrate_button = tk.Button(root, text="Calibrate", command=self.show_start_instructions)
         self.calibrate_button.pack(pady=5)
         logging.debug("Calibration button created")
 
     def show_start_instructions(self):
-        """Show popup with test instructions before calibration."""
+        """Show popup with test instructions and disable button."""
+        if self.calibrated:
+            return  # Prevent multiple calibrations
+        self.calibrate_button.config(state='disabled')  # Disable button immediately
         instructions = (
             "Welcome to the Alzheimer's Eye Tracking Test\n\n"
             "Instructions:\n"
@@ -64,6 +71,8 @@ class SmoothPursuitTest:
         self.calibrate()
 
     def calibrate(self):
+        if self.calibrated:
+            return  # Prevent re-running calibration
         logging.debug("Starting calibration")
         calibration_points = [
             (self.margin + self.active_width * 0.1, self.margin + self.active_height * 0.1),
@@ -73,6 +82,12 @@ class SmoothPursuitTest:
         ]
         for point in calibration_points:
             self.canvas.delete("all")
+            # Redraw black border
+            self.canvas.create_rectangle(
+                self.margin, self.margin,
+                self.canvas_width - self.margin, self.canvas_height - self.margin - 50,
+                outline="black", width=2
+            )
             self.canvas.create_oval(
                 point[0] - self.dot_radius, point[1] - self.dot_radius,
                 point[0] + self.dot_radius, point[1] + self.dot_radius,
@@ -85,7 +100,14 @@ class SmoothPursuitTest:
                 self.gaze.refresh(frame)
             logging.debug(f"Calibration point: {point}")
         self.canvas.delete("all")
+        # Redraw black border
+        self.canvas.create_rectangle(
+            self.margin, self.margin,
+            self.canvas_width - self.margin, self.canvas_height - self.margin - 50,
+            outline="black", width=2
+        )
         self.calibrate_button.destroy()
+        self.calibrated = True
         logging.debug("Calibration complete")
         self.start_test()
 
@@ -94,6 +116,7 @@ class SmoothPursuitTest:
         self.test_running = True
         self.start_time = time.time()
         self.last_log_time = self.start_time
+        self.dot_pos = [self.canvas_width / 2, self.canvas_height / 2]  # Start at center
         self.dot = self.canvas.create_oval(
             self.dot_pos[0] - self.dot_radius, self.dot_pos[1] - self.dot_radius,
             self.dot_pos[0] + self.dot_radius, self.dot_pos[1] + self.dot_radius,
@@ -101,7 +124,6 @@ class SmoothPursuitTest:
         )
         self.next_button = tk.Button(self.root, text="Next", command=self.show_save_instructions)
         self.next_button.pack(pady=5)
-        self.move_start_time = self.start_time
         self.set_new_velocity()
         self.move_dot()
         self.update()
@@ -115,34 +137,34 @@ class SmoothPursuitTest:
 
     def move_dot(self):
         if self.test_running:
-            current_time = time.time()
-            dt = current_time - self.move_start_time
-            if dt >= self.move_duration:
-                self.set_new_velocity()
-                self.move_start_time = current_time
-                dt = 0
-
             # Update position with fixed time step
             dt_frame = 0.016  # ~16ms per frame
             x = self.dot_pos[0] + self.dot_velocity[0] * dt_frame
             y = self.dot_pos[1] + self.dot_velocity[1] * dt_frame
 
-            # Check boundaries and reverse direction if needed
-            min_x = self.margin + self.active_width * 0.1
-            max_x = self.margin + self.active_width * 0.9
-            min_y = self.margin + self.active_height * 0.1
-            max_y = self.margin + self.active_height * 0.9
+            # Define active boundaries (touching the border)
+            min_x = self.margin
+            max_x = self.canvas_width - self.margin
+            min_y = self.margin
+            max_y = self.canvas_height - self.margin - 50
 
-            if x < min_x or x > max_x:
-                self.dot_velocity[0] = -self.dot_velocity[0]
-                x = max(min_x, min(max_x, x))
-                self.set_new_velocity()
-                self.move_start_time = current_time
-            if y < min_y or y > max_y:
-                self.dot_velocity[1] = -self.dot_velocity[1]
-                y = max(min_y, min(max_y, y))
-                self.set_new_velocity()
-                self.move_start_time = current_time
+            # Check for border collision and reverse axis to bounce
+            if x <= min_x:
+                self.dot_velocity[0] = abs(self.dot_velocity[0])  # Reverse x to move right
+                x = min_x
+                logging.debug(f"Bounced off left border at x={x}")
+            elif x >= max_x:
+                self.dot_velocity[0] = -abs(self.dot_velocity[0])  # Reverse x to move left
+                x = max_x
+                logging.debug(f"Bounced off right border at x={x}")
+            if y <= min_y:
+                self.dot_velocity[1] = abs(self.dot_velocity[1])  # Reverse y to move down
+                y = min_y
+                logging.debug(f"Bounced off top border at y={y}")
+            elif y >= max_y:
+                self.dot_velocity[1] = -abs(self.dot_velocity[1])  # Reverse y to move up
+                y = max_y
+                logging.debug(f"Bounced off bottom border at y={y}")
 
             self.dot_pos = [x, y]
             self.canvas.coords(

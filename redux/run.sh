@@ -8,4 +8,4 @@ python3 main.py || {
     exit 1
 }
 echo "Test complete. CSV saved in ~/AlziAid/."
-echo "Upload the CSV to [Insert Google Drive Link] or email to [Insert Email]."
+echo "Upload the CSV to google drive and share with [yuqisun@umich.edu] or email to [yuqisun@umich.edu]."
