@@ -38,8 +38,9 @@ class SmoothPursuitTest:
         self.blink_count = 0
         self.dot = None
         self.next_button = None
-        self.dot_radius = max(10, self.canvas_width * 0.01)
-        self.move_duration = 5.0  # Time to move in one direction before changing
+        self.dot_radius = 10
+	#self.dot_radius = max(10, self.canvas_width * 0.01)
+        self.move_duration = 10.0  # Time to move in one direction before changing
         self.move_start_time = 0
         self.last_log_time = 0
         self.calibrate_button = tk.Button(root, text="Calibrate", command=self.show_start_instructions)
@@ -107,7 +108,7 @@ class SmoothPursuitTest:
 
     def set_new_velocity(self):
         """Set a new random velocity for the dot."""
-        speed = random.uniform(200, 400)  # Pixels per second
+        speed = random.uniform(300, 400)  # Pixels per second
         angle = random.uniform(0, 2 * np.pi)
         self.dot_velocity = [speed * np.cos(angle), speed * np.sin(angle)]
         logging.debug(f"New velocity: {self.dot_velocity}")
