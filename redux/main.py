@@ -20,9 +20,9 @@ class SmoothPursuitTest:
         self.root = root
         self.root.title("Alzheimer's Eye Tracking Test")
         # Canvas size (720p) with 50px margins
-        self.canvas_width = 1280
-        self.canvas_height = 720
-        self.margin = 50
+        self.canvas_width = 1400
+        self.canvas_height = 800
+        self.margin = 10
         self.active_width = self.canvas_width - 2 * self.margin
         self.active_height = self.canvas_height - 2 * self.margin - 50  # Space for button
         self.canvas = tk.Canvas(root, width=self.canvas_width, height=self.canvas_height, bg="white")
@@ -224,8 +224,8 @@ class SmoothPursuitTest:
             "- Click 'OK' to open a file save dialog.\n"
             "- Choose a location to save the results as a CSV file.\n"
             "- Name the file clearly, e.g., 'EyeTracking_YourName_Date.csv'.\n"
-            "- After saving, please upload the file to our Google Drive link: [Insert Google Drive Link Here]\n"
-            "- Alternatively, email the file to: [Insert Email Address Here]\n"
+            "- After saving, please upload the file to google drive and share with [yuqisun@umich.edu] and [richard.dyx@gmail.com]\n"
+            "- Alternatively, email the file to: [yuqisun@umich.edu] and [richard.dyx@gmail.com]\n"
             "- Ensure the file is sent within 24 hours for analysis.\n\n"
             "Thank you for participating!"
         )

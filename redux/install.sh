@@ -5,7 +5,7 @@ set -e
 
 echo "Starting AlziAid Eye Tracking Test Setup..."
 echo "This script installs required software."
-echo "If errors occur, please contact [Insert Support Contact]."
+echo "If errors occur, please contact yuqisun@umich.edu or call +852 59816970 on whatsapp."
 
 # Check internet
 if ! ping -c 1 google.com >/dev/null 2>&1; then

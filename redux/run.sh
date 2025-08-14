@@ -7,5 +7,5 @@ python3 main.py || {
     echo "Error: Failed to run main.py. Check ~/AlziAid/app_error.log."
     exit 1
 }
-echo "Test complete. CSV saved in ~/AlziAid/."
-echo "Upload the CSV to google drive and share with [yuqisun@umich.edu] or email to [yuqisun@umich.edu]."
+echo "Test complete. CSV saved in the designated folder"
+echo "Upload the CSV to google drive and share with [yuqisun@umich.edu] and [richard.dyx@gmail.com] or email to [yuqisun@umich.edu] and [richard.dyx@gmail.com]."
