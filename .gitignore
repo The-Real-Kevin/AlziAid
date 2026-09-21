@@ -1,0 +1,30 @@
+# ---- Participant data: never commit ----
+results/*
+!results/.gitkeep
+
+# ---- Installed environment ----
+.venv/
+venv/
+env/
+
+# ---- Python cache ----
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# ---- Packaging / build output ----
+build/
+dist/
+*.spec
+*.egg-info/
+
+# ---- Video / temporary files anywhere in the repo ----
+*.mp4
+*.tmp
+
+# ---- OS and editor clutter ----
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
