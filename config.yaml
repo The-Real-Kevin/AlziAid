@@ -1,0 +1,220 @@
+# =============================================================================
+# ALICE configuration
+# -----------------------------------------------------------------------------
+# All stimulus sizes are in DEGREES OF VISUAL ANGLE unless stated otherwise.
+# They are converted to pixels at runtime using the screen size and viewing
+# distance below, so the stimuli are the same angular size on any display.
+#
+# A copy of this file is saved into every session folder, so every dataset
+# records exactly which parameters produced it.
+# =============================================================================
+
+software:
+  title: "ALICE"
+  subtitle: "Eye Movement and Visual Function Assessment"
+  results_dir: "results"            # relative to the ALICE folder
+  # Available fields: {subject} {group} {datetime}
+  folder_name_format: "S{subject:03d}_{group}_{datetime}"
+  random_seed: null                 # null = new random seed each session (seed is logged)
+
+display:
+  # Physical size of the screen used for testing. Set width_cm if you have
+  # measured it (most accurate); otherwise the diagonal is used.
+  diagonal_inches: 13.3
+  width_cm: null
+  viewing_distance_cm: 60           # eye-to-screen distance; keep constant for every participant
+  fallback_fps: 60                  # frame cap used only if vsync is unavailable
+  font_scale: 1.0
+  colours:
+    background: "#EFEFEF"
+    outline: "#000000"
+    text: "#000000"
+    button_fill: "#F7F7F7"
+    button_selected: "#BDBDBD"
+    disabled_text: "#9A9A9A"
+    ok: "#1E7B34"
+    warn: "#B36B00"
+    bad: "#B00020"
+
+camera:
+  index: 0                          # 0 = built-in webcam; try 1 for an external USB camera
+  width: 1280
+  height: 720
+  fps: 30                           # requested rate; the measured rate is logged
+  video_codec: "mp4v"
+  mirror_preview: true
+  startup_timeout_s: 15
+
+tracking:
+  # Landmark features used by the gaze model. Available:
+  # r_iris_x r_iris_y l_iris_x l_iris_y head_yaw head_pitch head_roll head_x head_y head_scale
+  # All ten are always written to the frame-level CSVs for offline re-analysis.
+  features: [r_iris_x, r_iris_y, l_iris_x, l_iris_y, head_yaw, head_pitch]
+  blink_relative_threshold: 0.6     # blink if eye openness < 0.6 x participant's calibration median
+  blink_absolute_threshold: 0.12    # used before calibration
+  face_timeout_s: 0.3
+
+calibration:
+  margin_fraction: 0.08             # calibration points inset from screen edges
+  dot_diameter_deg: 0.8
+  settle_s: 0.3                     # ignore this long after the click
+  collect_s: 0.7                    # then collect samples for this long
+  min_samples_per_point: 8
+  max_point_retries: 2
+  validation_dot_s: 1.5
+  validation_collect_from_s: 0.5
+  pass_deg: 3.0
+  warn_deg: 10.0
+  failures_before_override: 2       # after this many failed attempts the operator may continue (flagged)
+  model_degrees: [1, 2]             # polynomial degrees tried; best chosen by leave-one-point-out CV
+  ridge_alphas: [0.001, 0.01, 0.1, 1, 10, 100, 1000]
+  drift_check:
+    enabled: true
+    dot_s: 1.5
+    collect_from_s: 0.5
+    fail_deg: 2.5
+
+smooth_pursuit:
+  dot_diameter_deg: 0.6
+  colour: "#CC0000"
+  speed_deg_s: 4.0
+  segment_duration_s: [0.8, 2.0]    # random time between direction changes
+  edge_margin_fraction: 0.05        # the dot never comes closer than this to any screen edge
+  blocks: 2
+  block_duration_s: 30
+  fixation_s: 1.0                   # stationary dot at centre before each block
+  rest_s: 10
+
+prosaccade:
+  trials: 10
+  practice_trials: 0
+  eccentricity_deg: 10              # horizontal distance of the side dots from centre
+  fixation_diameter_deg: 0.5
+  target_diameter_deg: 0.8
+  fixation_colour: "#CC0000"
+  target_colour: "#00008B"
+  cue_colour: "#00CC00"
+  cue_duration_s: 1.0
+  iti_s: [1.5, 3.5]                 # random fixation period before each cue
+  response_window_s: 2.0            # keypresses accepted this long after cue onset
+  anticipatory_ms: 100
+
+antisaccade:
+  trials: 10
+  practice_trials: 3                # with on-screen feedback; saved but flagged practice=1
+  eccentricity_deg: 10
+  fixation_diameter_deg: 0.5
+  target_diameter_deg: 0.8
+  fixation_colour: "#CC0000"
+  target_colour: "#00008B"
+  cue_colour: "#00CC00"
+  cue_duration_s: 1.0
+  iti_s: [1.5, 3.5]
+  response_window_s: 2.0
+  anticipatory_ms: 100
+
+saccade_detection:                  # applied to the webcam gaze trace after each section
+  velocity_threshold_deg_s: 30
+  min_amplitude_deg: 3.0
+  baseline_window_s: [-0.2, 0.0]    # relative to cue onset
+  search_window_s: [0.0, 0.8]
+  confirm_window_s: 0.15
+  min_valid_fraction: 0.6
+
+rdk:
+  trials_coherence: [0.80, 0.60, 0.40, 0.25, 0.15, 0.05]   # one trial per value, in this order
+  practice_trials: 1
+  practice_coherence: 1.0
+  aperture_diameter_deg: 10
+  aperture_colour: "#202020"
+  dot_colour: "#FFFFFF"
+  dot_diameter_deg: 0.12
+  dot_density_per_deg2: 1.5
+  speed_deg_s: 3.0
+  dot_lifetime_s: 0.2               # dots are re-placed randomly after this; null = infinite
+  noise_mode: "static"              # "static" = non-signal dots stay still; "random" = random directions
+  directions: [up, right, down, left]
+  direction_options: 3              # direction buttons shown (the correct one is always included)
+  stimulus_duration_s: 5.0
+  inter_trial_s: 0.8
+
+colour:
+  patch_diameter_deg: 3.0
+  patch_spacing_deg: 6.0            # centre-to-centre distance from the middle patch
+  outline: true
+  # One entry per plate. All colours are sRGB hex and can be edited freely.
+  # Provisional values from tools/generate_colour_plates.py: confusion colours
+  # lie on the protan/deutan/tritan confusion lines through the centre colour.
+  plates:
+    - {centre: "#6F8F9C", correct: "#7F8C90", protan: "#0799A2", deutan: "#299998", tritan: "#7889BA"}
+    - {centre: "#8F7F9F", correct: "#997BA5", protan: "#B66F96", deutan: "#648B9B", tritan: "#89857F"}
+    - {centre: "#9A8F66", correct: "#A48C5A", protan: "#BD8161", deutan: "#BC816A", tritan: "#97923E"}
+    - {centre: "#9E7F86", correct: "#95837F", protan: "#738C8D", deutan: "#BE6F8A", tritan: "#9A8463"}
+    - {centre: "#7A9A82", correct: "#689D8D", protan: "#A58E7C", deutan: "#3FA37F", tritan: "#8195A3"}
+
+# -----------------------------------------------------------------------------
+# On-screen instructions. The operator reads these aloud before each section.
+# -----------------------------------------------------------------------------
+instructions:
+  start: >-
+    Welcome. This test takes about 15 minutes. You will watch dots on the screen
+    and follow some simple instructions. Please sit comfortably, keep your head
+    as still as possible, and look at the screen throughout.
+    The staff member will explain each part before it begins.
+
+  face_position: >-
+    Operator: adjust the seat so the participant's face is centred in the outline
+    and both eyes are clearly visible. The participant should sit about 60 cm from
+    the screen. Continue becomes available once the face has been detected steadily.
+
+  calibration: >-
+    First we will teach the computer where you are looking.
+    Dots will appear one at a time. Look directly at the centre of each dot and
+    click on it with the mouse while you keep looking at it.
+    (Operator: you may press SPACE instead of clicking once the participant is
+    looking at the dot.)
+
+  validation: >-
+    Now just look at each dot as it appears. You do not need to click.
+
+  drift_check: >-
+    A quick check. Look at the dot in the middle of the screen.
+
+  smooth_pursuit: >-
+    A red dot will move around the screen.
+    Follow it with your eyes as closely as you can, keeping your head still.
+    There are two rounds of 30 seconds with a short rest between them.
+
+  prosaccade: >-
+    Look at the red dot in the middle of the screen.
+    When one of the blue dots turns GREEN, look at the green dot as quickly as
+    you can, and at the same time press:
+    F  if it is on the LEFT,     J  if it is on the RIGHT.
+    Then look back at the red dot in the middle.
+
+  antisaccade: >-
+    This time do the OPPOSITE.
+    Look at the red dot in the middle. When a blue dot turns GREEN,
+    look to the OTHER side as quickly as you can, and press:
+    F  when you look LEFT,     J  when you look RIGHT.
+    So: green on the right → look left and press F.
+    Green on the left → look right and press J.
+    You will do a few practice rounds first.
+
+  antisaccade_practice_done: >-
+    Practice complete. The real test starts now. There will be no more feedback.
+    Remember: look to the OPPOSITE side of the green dot.
+
+  rdk: >-
+    You will see a circle of white dots. Some of the dots are moving together
+    in one direction. After the dots disappear, click the button showing which
+    way they were moving. If you are not sure, click "I don't know".
+
+  colour: >-
+    You will see one circle in the middle and four circles around it.
+    Click on the outer circle whose colour is MOST SIMILAR to the middle circle.
+    Take as much time as you need.
+
+  save: >-
+    Select the participant's group from their clinical record, not from how they
+    performed today. Add any notes (breaks, fatigue, interruptions, tracking issues).

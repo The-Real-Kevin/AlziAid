@@ -1,0 +1,9 @@
+# ALICE dependencies - versions pinned to the set tested together.
+# Python 3.11 or 3.12 required (MediaPipe 0.10.14 does not support 3.13).
+--only-binary=:all:
+mediapipe==0.10.14
+opencv-contrib-python>=4.8,<4.12   # MediaPipe needs the contrib build; do NOT also install opencv-python
+numpy==1.26.4                      # MediaPipe 0.10.14 is built against NumPy 1.x
+pygame==2.6.1
+scikit-learn>=1.3,<1.9
+PyYAML>=6.0

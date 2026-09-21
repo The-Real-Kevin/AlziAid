@@ -1,0 +1,155 @@
+=====================================================================
+ ALICE - SETUP INSTRUCTIONS FOR HOSPITAL STAFF
+=====================================================================
+
+You only need to do Part A once per computer.
+Part B is what you do for every participant.
+
+If anything goes wrong, take a photo of the screen and send it to the
+research team. Do not try to fix the program files yourself.
+
+
+---------------------------------------------------------------------
+ PART A - ONE-TIME INSTALLATION  (about 15 minutes, needs internet)
+---------------------------------------------------------------------
+
+STEP 1. Install Python 3.11
+
+   Go to  https://www.python.org/downloads/release/python-3119/
+   Scroll to "Files" and download:
+     - Windows:  "Windows installer (64-bit)"
+     - Mac:      "macOS 64-bit universal2 installer"
+
+   Run the installer.
+     - WINDOWS: on the first screen, TICK the box
+       "Add python.exe to PATH" before clicking Install Now.
+     - MAC: click through with the default options.
+
+   Important: use Python 3.11 (3.12 also works). Do NOT use 3.13 or newer.
+
+
+STEP 2. Download ALICE
+
+   Open the GitHub page for ALICE (link provided by the research team).
+   Click the green "Code" button -> "Download ZIP".
+   Extract (unzip) the folder to the Desktop.
+   You should now have a folder called "alice" on the Desktop.
+
+
+STEP 3. Install ALICE
+
+   Open the "alice" folder and double-click:
+     - Windows:  install_windows.bat
+     - Mac:      install_mac.command
+
+   A black window opens and downloads the required components.
+   Wait until it says "Installation complete", then press Enter / any key.
+
+   MAC ONLY - if you see "cannot be opened because it is from an
+   unidentified developer": right-click the file -> Open -> Open.
+   If the file does not run at all: open Terminal, type  bash  followed by
+   a space, drag the file into the Terminal window, and press Enter.
+
+
+STEP 4. Check the camera
+
+   Double-click:
+     - Windows:  camera_test_windows.bat
+     - Mac:      camera_test_mac.command
+
+   The first time, the computer asks for camera permission. Click ALLOW.
+     - MAC: if no permission window appears and the preview stays black,
+       open System Settings -> Privacy & Security -> Camera and switch ON
+       "Terminal". Then run the camera test again.
+
+   Sit in front of the screen. You should see your face with small green
+   dots on your eyes, and "Face detected" in green. Press Esc to close.
+
+   Close any other program that uses the camera (Zoom, Teams, browser
+   video calls) before running ALICE.
+
+
+STEP 5. Screen settings (research team will confirm these values)
+
+   Open config.yaml in Notepad (Windows) or TextEdit (Mac). Check that
+   "diagonal_inches" matches the screen size of this computer. Do not
+   change anything else unless the research team asks you to.
+
+
+---------------------------------------------------------------------
+ PART B - RUNNING A SESSION  (about 15 minutes per participant)
+---------------------------------------------------------------------
+
+BEFORE THE PARTICIPANT ARRIVES
+
+   [ ] Chair at the floor mark, about 60 cm from the screen.
+   [ ] Room lights on. No window or bright lamp behind the participant
+       or shining directly on the screen.
+   [ ] Other camera programs closed.
+   [ ] Computer plugged into power (battery-saving mode slows the camera).
+
+RUNNING THE TEST
+
+   1. Double-click  start_alice.bat  (Windows) or  start_alice.command  (Mac).
+   2. Click Start.
+   3. Enter the participant details. Subject number is filled in
+      automatically. NEVER type the participant's name.
+   4. Face position screen: adjust the chair until the face is inside the
+      outline and "Face detected" is green. Click Continue.
+   5. Calibration: read the instructions aloud. The participant looks at
+      each dot and clicks it. If they cannot use the mouse, YOU press the
+      SPACE bar when they are looking at the dot.
+   6. Calibration result:
+        PASS (green)        -> Continue.
+        ACCEPTABLE (amber)  -> Continue, or Recalibrate if time allows.
+        FAILED (red)        -> Recalibrate. Check lighting and glasses
+                               reflections, ask the participant to sit still.
+   7. Before each of the 5 parts, read the instruction screen ALOUD and
+      check the participant understands, then click Begin.
+   8. A short "quick check" appears after part 2. If it says drift was
+      detected, choose Recalibrate.
+   9. At the end, choose the group from the participant's CLINICAL RECORD:
+        A = Alzheimer's disease
+        M = Mild cognitive impairment
+        H = Healthy control
+      Type any notes (breaks, tiredness, interruptions). Click Save.
+  10. The screen shows the folder name. Click "New session" for the next
+      participant, or "Quit".
+
+BREAKS
+   The participant may rest on any instruction screen. Do not interrupt
+   a part while it is running.
+
+IF YOU NEED TO STOP
+   Press Esc. Then choose:
+     "Restart this section" - the current part starts again from the beginning.
+     "Abort session"        - stops everything. Data collected so far is kept
+                              in a folder marked PARTIAL.
+
+WHERE THE DATA IS
+   alice/results/  - one folder per participant, e.g.  S012_H_20261003_1430
+   Copy the results folder to the research team using the approved transfer
+   method. Do not email it and do not upload it to GitHub.
+
+
+---------------------------------------------------------------------
+ TROUBLESHOOTING
+---------------------------------------------------------------------
+
+ "Camera problem" at start      Close Zoom/Teams/browser tabs using the camera.
+                                Check camera permission (Step 4). Restart ALICE.
+
+ Face not detected              Improve lighting on the face. Remove hats.
+                                Tilt the screen slightly if glasses reflect.
+
+ Calibration keeps failing      Reseat the participant closer to 60 cm, make
+                                sure the head stays still. After 2 failures
+                                "Continue anyway" appears - use only if needed
+                                and write the reason in the notes.
+
+ Program closes unexpectedly    Reopen it and start the participant again with
+                                a NEW session. The incomplete folder is kept
+                                (marked PENDING or PARTIAL) - tell the research
+                                team which participant it was.
+
+ Screen text too small/large    Tell the research team (font_scale in config).
