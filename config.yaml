@@ -88,7 +88,7 @@ smooth_pursuit:
 prosaccade:
   trials: 10
   practice_trials: 0
-  eccentricity_deg: 10              # horizontal distance of the side dots from centre
+  eccentricity_deg: 18.             # horizontal distance of the side dots from centre
   fixation_diameter_deg: 0.5
   target_diameter_deg: 0.8
   fixation_colour: "#CC0000"
@@ -102,7 +102,7 @@ prosaccade:
 antisaccade:
   trials: 10
   practice_trials: 3                # with on-screen feedback; saved but flagged practice=1
-  eccentricity_deg: 10
+  eccentricity_deg: 18
   fixation_diameter_deg: 0.5
   target_diameter_deg: 0.8
   fixation_colour: "#CC0000"
@@ -115,7 +115,7 @@ antisaccade:
 
 saccade_detection:                  # applied to the webcam gaze trace after each section
   velocity_threshold_deg_s: 30
-  min_amplitude_deg: 3.0
+  min_amplitude_deg: 8.0
   baseline_window_s: [-0.2, 0.0]    # relative to cue onset
   search_window_s: [0.0, 0.8]
   confirm_window_s: 0.15
