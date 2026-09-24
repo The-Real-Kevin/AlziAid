@@ -132,7 +132,7 @@ rdk:
   dot_density_per_deg2: 1.5
   speed_deg_s: 3.0
   dot_lifetime_s: 0.2               # dots are re-placed randomly after this; null = infinite
-  noise_mode: "static"              # "static" = non-signal dots stay still; "random" = random directions
+  noise_mode: "random"              # "static" = non-signal dots stay still; "random" = random directions
   directions: [up, right, down, left]
   direction_options: 3              # direction buttons shown (the correct one is always included)
   stimulus_duration_s: 5.0

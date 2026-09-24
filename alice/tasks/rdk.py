@@ -130,8 +130,11 @@ def run(ctx):
                     age += dt
                     dead = age >= life
                     if dead.any():
-                        pos[dead] = rand_pos(int(dead.sum()))
+                        n_dead = int(dead.sum())
+                        pos[dead] = rand_pos(n_dead)
                         age[dead] = 0.0
+                        a = rng.uniform(0, 2 * np.pi, n_dead)
+                        noise_vec[dead] = np.stack([np.cos(a), np.sin(a)], axis=1)
             inp.poll()
             draw_frame(True)
             ft = d.flip()
